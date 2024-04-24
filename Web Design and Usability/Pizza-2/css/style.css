@@ -1,0 +1,107 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+*{padding: 0;}
+
+body
+{
+	text-align: center;
+	background: slategray;
+}
+
+div.paragraph
+{
+    margin:auto;
+    padding:10px;
+    width: 55%;
+    font-family:'Courier New', Courier, monospace;
+    font-size: x-large;
+}
+
+img.tile
+{
+    margin:auto;
+    width:30%;
+    height: 40%;
+}
+label, input
+{
+  margin-left: 12px;
+}
+
+h1
+{
+	background-color: #D5191C
+}
+.container
+{
+	width: 900px;
+}
+.flex-outer li
+{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-outer > li > label, .flex-outer li p 
+{
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+.flex-outer > li > label + *
+{
+  flex: 1 0 220px;
+}
+
+.menu li, .menu ul li a
+{
+  display: inline-block;
+}
+
+.menu
+{
+	overflow: hidden;
+  	background-color: #333;
+	float: right;
+}
+
+.menu > li
+{
+  float: left;
+}
+
+ul li a 
+{
+    color: white;
+    padding: 10px;
+	transition: all .75s ease;
+    text-decoration: none;
+    font-family: 'Muli',Sans-Serif;
+}
+.fixWidth form
+{
+	width: 500px;
+}
+
+li a:hover 
+{
+  cursor: pointer;
+  background-color: #111;
+  color: blue;
+}
+.fixFont
+{
+	font-size: medium;
+	font-family: 'Muli',Sans-Serif;
+}
+.relative
+{
+  position: relative;
+  top: 75px;
+  border: 3px solid black;
+}
+.current
+{
+	background-color: slategray;
+}

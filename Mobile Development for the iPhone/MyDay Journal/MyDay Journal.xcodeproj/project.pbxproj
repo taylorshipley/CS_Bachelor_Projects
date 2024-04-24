@@ -1,0 +1,383 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EA283A2B2A79928900B86960 /* MyDay_JournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA283A2A2A79928900B86960 /* MyDay_JournalApp.swift */; };
+		EA283A2D2A79928900B86960 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA283A2C2A79928900B86960 /* ContentView.swift */; };
+		EA283A322A79928A00B86960 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA283A312A79928A00B86960 /* Preview Assets.xcassets */; };
+		EA283A372A79928A00B86960 /* MyDay_Journal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA283A352A79928A00B86960 /* MyDay_Journal.xcdatamodeld */; };
+		EA283A422A79937700B86960 /* EditEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA283A412A79937700B86960 /* EditEntryView.swift */; };
+		EA283A462A7993B400B86960 /* NewEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA283A452A7993B400B86960 /* NewEntryView.swift */; };
+		EA283A482A7993D600B86960 /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA283A472A7993D600B86960 /* EntryDetailView.swift */; };
+		EA283A4A2A79940400B86960 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA283A492A79940400B86960 /* Entry.swift */; };
+		EA283A4E2A79941C00B86960 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA283A4D2A79941C00B86960 /* NotificationManager.swift */; };
+		EA283A502A7994A800B86960 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA283A4F2A7994A800B86960 /* Assets.xcassets */; };
+		EA2E82682A7B3A01005BB401 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2E82672A7B3A01005BB401 /* DatabaseManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EA283A272A79928900B86960 /* MyDay Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyDay Journal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA283A2A2A79928900B86960 /* MyDay_JournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDay_JournalApp.swift; sourceTree = "<group>"; };
+		EA283A2C2A79928900B86960 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EA283A312A79928A00B86960 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EA283A362A79928A00B86960 /* MyDay_Journal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyDay_Journal.xcdatamodel; sourceTree = "<group>"; };
+		EA283A412A79937700B86960 /* EditEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryView.swift; sourceTree = "<group>"; };
+		EA283A452A7993B400B86960 /* NewEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryView.swift; sourceTree = "<group>"; };
+		EA283A472A7993D600B86960 /* EntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
+		EA283A492A79940400B86960 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		EA283A4D2A79941C00B86960 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		EA283A4F2A7994A800B86960 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EA2E82672A7B3A01005BB401 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EA283A242A79928900B86960 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EA283A1E2A79928900B86960 = {
+			isa = PBXGroup;
+			children = (
+				EA283A292A79928900B86960 /* MyDay Journal */,
+				EA283A282A79928900B86960 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EA283A282A79928900B86960 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EA283A272A79928900B86960 /* MyDay Journal.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EA283A292A79928900B86960 /* MyDay Journal */ = {
+			isa = PBXGroup;
+			children = (
+				EA283A2A2A79928900B86960 /* MyDay_JournalApp.swift */,
+				EA283A2C2A79928900B86960 /* ContentView.swift */,
+				EA283A472A7993D600B86960 /* EntryDetailView.swift */,
+				EA283A452A7993B400B86960 /* NewEntryView.swift */,
+				EA283A412A79937700B86960 /* EditEntryView.swift */,
+				EA283A492A79940400B86960 /* Entry.swift */,
+				EA283A4D2A79941C00B86960 /* NotificationManager.swift */,
+				EA2E82672A7B3A01005BB401 /* DatabaseManager.swift */,
+				EA283A352A79928A00B86960 /* MyDay_Journal.xcdatamodeld */,
+				EA283A4F2A7994A800B86960 /* Assets.xcassets */,
+				EA283A302A79928A00B86960 /* Preview Content */,
+			);
+			path = "MyDay Journal";
+			sourceTree = "<group>";
+		};
+		EA283A302A79928A00B86960 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EA283A312A79928A00B86960 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EA283A262A79928900B86960 /* MyDay Journal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA283A3A2A79928A00B86960 /* Build configuration list for PBXNativeTarget "MyDay Journal" */;
+			buildPhases = (
+				EA283A232A79928900B86960 /* Sources */,
+				EA283A242A79928900B86960 /* Frameworks */,
+				EA283A252A79928900B86960 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MyDay Journal";
+			productName = "MyDay Journal";
+			productReference = EA283A272A79928900B86960 /* MyDay Journal.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EA283A1F2A79928900B86960 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					EA283A262A79928900B86960 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = EA283A222A79928900B86960 /* Build configuration list for PBXProject "MyDay Journal" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EA283A1E2A79928900B86960;
+			productRefGroup = EA283A282A79928900B86960 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EA283A262A79928900B86960 /* MyDay Journal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EA283A252A79928900B86960 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA283A502A7994A800B86960 /* Assets.xcassets in Resources */,
+				EA283A322A79928A00B86960 /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EA283A232A79928900B86960 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA283A482A7993D600B86960 /* EntryDetailView.swift in Sources */,
+				EA2E82682A7B3A01005BB401 /* DatabaseManager.swift in Sources */,
+				EA283A462A7993B400B86960 /* NewEntryView.swift in Sources */,
+				EA283A372A79928A00B86960 /* MyDay_Journal.xcdatamodeld in Sources */,
+				EA283A4E2A79941C00B86960 /* NotificationManager.swift in Sources */,
+				EA283A2D2A79928900B86960 /* ContentView.swift in Sources */,
+				EA283A2B2A79928900B86960 /* MyDay_JournalApp.swift in Sources */,
+				EA283A4A2A79940400B86960 /* Entry.swift in Sources */,
+				EA283A422A79937700B86960 /* EditEntryView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EA283A382A79928A00B86960 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EA283A392A79928A00B86960 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EA283A3B2A79928A00B86960 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MyDay Journal/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "taylorshipley.MyDay-Journal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EA283A3C2A79928A00B86960 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MyDay Journal/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "taylorshipley.MyDay-Journal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EA283A222A79928900B86960 /* Build configuration list for PBXProject "MyDay Journal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA283A382A79928A00B86960 /* Debug */,
+				EA283A392A79928A00B86960 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA283A3A2A79928A00B86960 /* Build configuration list for PBXNativeTarget "MyDay Journal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA283A3B2A79928A00B86960 /* Debug */,
+				EA283A3C2A79928A00B86960 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EA283A352A79928A00B86960 /* MyDay_Journal.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EA283A362A79928A00B86960 /* MyDay_Journal.xcdatamodel */,
+			);
+			currentVersion = EA283A362A79928A00B86960 /* MyDay_Journal.xcdatamodel */;
+			path = MyDay_Journal.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EA283A1F2A79928900B86960 /* Project object */;
+}

@@ -1,0 +1,278 @@
+mysql> 
+mysql> # Taylor Shipley
+mysql> # Assignment #6: Single-Table Query for the COLONIAL Adventure Tours
+mysql> 
+mysql> # 1. List the last name of each guide that does not live in Massachusetts (MA).
+mysql> SELECT LAST_NAME FROM GUIDE WHERE NOT STATE = 'MA';
++-----------+
+| LAST_NAME |
++-----------+
+| Boyers    |
+| Gregory   |
+| Kiley     |
+| Kelly     |
+| Rowan     |
+| Stevens   |
+| Unser     |
++-----------+
+7 rows in set (0.00 sec)
+
+mysql> 
+mysql> # 2. List the trip name of each trip that has the type Biking.
+mysql> SELECT TRIP_NAME FROM TRIP WHERE TYPE = 'Biking';
++------------------------+
+| TRIP_NAME              |
++------------------------+
+| Cadillac Mountain Ride |
+| Mount Battie Ride      |
+| Park Loop Ride         |
+| Pisgah STATE Park Ride |
+| Pondicherry Trail Ride |
+| Sawyer River Ride      |
+| Bradbury Mountain Ride |
+| Westfield River Loop   |
++------------------------+
+8 rows in set (0.00 sec)
+
+mysql> 
+mysql> # 3. List the trip name of each trip that has the season Summer.
+mysql> SELECT TRIP_NAME FROM TRIP WHERE SEASON = 'SUMMER';
++----------------------------------+
+| TRIP_NAME                        |
++----------------------------------+
+| Arethusa Falls                   |
+| Mt. Cardigan - Firescrew         |
+| Chocorua Lake Tour               |
+| Crawford Path Presidentials Hike |
+| Long Pond                        |
+| Long Pond Tour                   |
+| Mt Adams                         |
+| McLennan Reservation Hike        |
+| Missisquoi River - VT            |
+| Northern Forest Canoe Trail      |
+| Pisgah STATE Park Ride           |
+| Welch and Dickey Mountains Hike  |
+| Black Pond                       |
+| Big Rock Cave                    |
++----------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> 
+mysql> # 4. List the trip name of each trip that has the type Hiking and that has a distance longer than 10 miles.
+mysql> SELECT TRIP_NAME FROM TRIP WHERE TYPE = 'Hiking' AND DISTANCE > 10;
++----------------------------------+
+| TRIP_NAME                        |
++----------------------------------+
+| Crawford Path Presidentials Hike |
++----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> # 5. List the customer number, customer last name, and customer first name of each customer that lives in New Jersey (NJ), New York (NY) or Pennsylvania (PA). Use the IN operator in your command.
+mysql> SELECT CUSTOMER_NUM, LAST_NAME, FIRST_NAME FROM CUSTOMER WHERE STATE IN ('NJ', 'NY', 'PA');
++--------------+-----------+------------+
+| CUSTOMER_NUM | LAST_NAME | FIRST_NAME |
++--------------+-----------+------------+
+| 105          | McLean    | Kyle       |
+| 108          | Rulf      | Uschi      |
+| 110          | Bers      | Martha     |
+| 115          | Vaccari   | Adam       |
+| 125          | Peterson  | Becca      |
++--------------+-----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> # 6. Repeat Exercise 5 and sort the records by state in descending order and then by customer last name in ascending order.
+mysql> SELECT CUSTOMER_NUM, LAST_NAME, FIRST_NAME FROM CUSTOMER WHERE STATE IN ('NJ', 'NY', 'PA') ORDER BY STATE DESC, LAST_NAME ASC;
++--------------+-----------+------------+
+| CUSTOMER_NUM | LAST_NAME | FIRST_NAME |
++--------------+-----------+------------+
+| 108          | Rulf      | Uschi      |
+| 110          | Bers      | Martha     |
+| 105          | McLean    | Kyle       |
+| 125          | Peterson  | Becca      |
+| 115          | Vaccari   | Adam       |
++--------------+-----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> # 7. How many trips are in the states of Maine (ME) or Massachusetts (MA)?
+mysql> SELECT COUNT(STATE) FROM CUSTOMER WHERE STATE IN ('ME', 'MA');
++--------------+
+| COUNT(STATE) |
++--------------+
+|            6 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> # 8. How many trips originate in each state?
+mysql> SELECT COUNT(STATE) FROM TRIP GROUP BY STATE;
++--------------+
+| COUNT(STATE) |
++--------------+
+|           19 |
+|           12 |
+|            2 |
+|            4 |
+|            4 |
++--------------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> # 9. How many reservations include a trip price that is greater than $20 but less than $75?
+mysql> SELECT COUNT(TRIP_ID) FROM RESERVATION WHERE TRIP_PRICE > 20 AND TRIP_PRICE < 75;
++----------------+
+| COUNT(TRIP_ID) |
++----------------+
+|             13 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> # 10. How many trips of each type are there?
+mysql> SELECT COUNT(TRIP_ID) FROM TRIP GROUP BY TYPE;
++----------------+
+| COUNT(TRIP_ID) |
++----------------+
+|             24 |
+|              9 |
+|              8 |
++----------------+
+3 rows in set (0.00 sec)
+
+mysql> 
+mysql> # 11. Colonial Adventure Tours calculates the total price of a trip by adding the trip price plus other fees and multiplying the result by the number of persons included in the reservation. List the reservation ID, trip ID, customer number, and total price for all reservations where the number of persons is greater than four. Use the column name TOTAL_PRICE for the calculated field.
+mysql> SELECT RESERVATION_ID, TRIP_ID, CUSTOMER_NUM, ((TRIP_PRICE + OTHER_FEES) * NUM_PERSONS) AS TOTAL_PRICE FROM RESERVATION WHERE NUM_PERSONS > 4;
++----------------+---------+--------------+-------------+
+| RESERVATION_ID | TRIP_ID | CUSTOMER_NUM | TOTAL_PRICE |
++----------------+---------+--------------+-------------+
+| 1600005        | 39      | 105          |         275 |
+| 1600007        | 22      | 107          |         680 |
+| 1600016        | 11      | 121          |         540 |
+| 1600030        | 15      | 104          |         450 |
++----------------+---------+--------------+-------------+
+4 rows in set (0.01 sec)
+
+mysql> 
+mysql> # 12. Find the name of each trip containing the word “Pond.”
+mysql> SELECT TRIP_NAME FROM TRIP WHERE TRIP_NAME LIKE '%Pond%';
++------------------------+
+| TRIP_NAME              |
++------------------------+
+| Cherry Pond            |
+| Long Pond              |
+| Long Pond Tour         |
+| Lower Pond Tour        |
+| Pondicherry Trail Ride |
+| Black Pond             |
++------------------------+
+6 rows in set (0.00 sec)
+
+mysql> 
+mysql> # 13. List the guide’s last name and guide’s first name for all guides that were hired before June 10, 2013.
+mysql> SELECT LAST_NAME, FIRST_NAME FROM GUIDE WHERE HIRE_DATE < '2013-06-10';
++-----------+------------+
+| LAST_NAME | FIRST_NAME |
++-----------+------------+
+| Abrams    | Miles      |
+| Boyers    | Rita       |
+| Devon     | Harley     |
+| Gregory   | Zach       |
+| Kiley     | Susan      |
++-----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> # 14. What is the average distance and the average maximum group size for each type of trip?
+mysql> SELECT AVG(DISTANCE), AVG(MAX_GRP_SIZE) FROM TRIP GROUP BY TYPE;
++--------------------+--------------------+
+| AVG(DISTANCE)      | AVG(MAX_GRP_SIZE)  |
++--------------------+--------------------+
+|              6.875 |                 10 |
+| 11.555555555555555 | 11.333333333333334 |
+|             17.125 |              11.75 |
++--------------------+--------------------+
+3 rows in set (0.00 sec)
+
+mysql> 
+mysql> # 15. Display the different seasons in which trips are offered. List each season only once.
+mysql> SELECT DISTINCT SEASON FROM TRIP;
++--------------+
+| SEASON       |
++--------------+
+| Summer       |
+| Early Fall   |
+| Late Spring  |
+| Spring       |
+| Late Fall    |
+| Early Spring |
++--------------+
+6 rows in set (0.00 sec)
+
+mysql> 
+mysql> # 16. List the reservation IDs for reservations that are for a paddling trip. (Hint: Use a subquery.)
+mysql> SELECT RESERVATION_ID FROM RESERVATION INNER JOIN TRIP ON RESERVATION.TRIP_ID = TRIP.TRIP_ID WHERE TYPE = 'PADDLING';
++----------------+
+| RESERVATION_ID |
++----------------+
+| 1600006        |
+| 1600007        |
+| 1600016        |
+| 1600021        |
++----------------+
+4 rows in set (0.00 sec)
+
+mysql> 
+mysql> # 17. What is the longest distance for a biking trip?
+mysql> SELECT MAX(DISTANCE) FROM TRIP WHERE TYPE = 'BIKING';
++---------------+
+| MAX(DISTANCE) |
++---------------+
+| 8             |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> # 18. For each trip in the RESERVATION table that has more than one reservation, group by trip ID and sum the trip price. (Hint: Use the COUNT function and a HAVING clause.)
+mysql> SELECT TRIP_ID, SUM(TRIP_PRICE) FROM RESERVATION GROUP BY TRIP_ID HAVING COUNT(RESERVATION_ID) > 1;
++---------+-----------------+
+| TRIP_ID | SUM(TRIP_PRICE) |
++---------+-----------------+
+| 21      |             190 |
+| 28      |             105 |
+| 39      |              75 |
+| 32      |             170 |
+| 38      |             315 |
+| 12      |              80 |
++---------+-----------------+
+6 rows in set (0.00 sec)
+
+mysql> 
+mysql> # 19. How many current reservations does Colonial Adventure Tours have and what is the total number of persons for all reservations?
+mysql> SELECT COUNT(RESERVATION_ID), SUM(NUM_PERSONS) FROM RESERVATION;
++-----------------------+------------------+
+| COUNT(RESERVATION_ID) | SUM(NUM_PERSONS) |
++-----------------------+------------------+
+|                    27 |               77 |
++-----------------------+------------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> # 20. List the reservation ID and trip ID for all trips that occur in the month of July, 2016. There are multiple ways to create this query. Write an alternate command that would produce the same result.
+mysql> SELECT RESERVATION_ID, TRIP_ID FROM RESERVATION WHERE TRIP_DATE BETWEEN 2016-07-01 AND 2016-07-31;
+Empty set, 2 warnings (0.00 sec)
+
+mysql> SELECT RESERVATION_ID, TRIP_ID FROM RESERVATION WHERE MONTH(TRIP_DATE) = 7 AND YEAR(TRIP_DATE) = 2016;
++----------------+---------+
+| RESERVATION_ID | TRIP_ID |
++----------------+---------+
+| 1600007        | 22      |
+| 1600013        | 8       |
+| 1600015        | 10      |
+| 1600016        | 11      |
+| 1600030        | 15      |
++----------------+---------+
+5 rows in set (0.00 sec)
+
+mysql> notee

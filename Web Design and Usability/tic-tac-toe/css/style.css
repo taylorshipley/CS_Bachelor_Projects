@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 5px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#scoreboard
+{
+	border: thick solid black;
+	background: green;
+	color: white;
+	text-align: center;
+}
+
+.container 
+{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+fieldset
+{
+	outline: solid black;
+	align-content: flex-end;
+	justify-content: flex-end;
+	width: 300px;
+}
+
+body
+{
+   background-color: slategrey;
+}
+
+h1
+{
+	padding: 5px;
+	text-shadow: 2px 2px 2px blue;
+	text-align: center;
+	background-color: #C20E11;
+	border: 10px solid slategray;
+}
+
+.play-area 
+{
+  display: grid;
+  width: 300px;
+  height: 300px;
+  grid-template-columns: auto auto auto;
+}
+
+.block 
+{
+  display: flex;
+  width: 100px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  border: 3px solid black;
+  transition: background 0.2s ease-in-out;
+  background: white;
+}
+
+.block:hover 
+{
+  cursor: pointer;
+  background: green;
+}
+
+.occupied:hover 
+{
+  background: red;
+}
+
+#block_0, #block_1, #block_2 
+{
+  border-top: none;
+}
+
+#block_0, #block_3, #block_6
+{
+  border-left: none;
+}
+
+#block_6, #block_7, #block_8
+{
+  border-bottom: none;
+}
+
+#block_2, #block_5, #block_8
+{
+  border-right: none;
+}
+
+button
+{
+  width: 110px;
+  height: 30px;
+  font-size: 1rem;
+}
+
+button, a
+{
+	border: solid  black;
+	padding: 2px 2px;
+	outline: 5px solid slategrey;
+	text-decoration: none;
+	background-color:navy;
+	color: orange;
+}
+
+button:hover
+{
+	cursor: pointer;
+}
+
+.playerWin 
+{
+  color: green;
+}
+
+.computerWin 
+{
+  color: red;
+}
+
+
+.draw 
+{
+  color: orangered;
+}

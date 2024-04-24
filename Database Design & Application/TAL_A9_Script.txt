@@ -1,0 +1,58 @@
+tee /Users/Tays012/Documents/CSIS1550/Shipley_Taylor_Ch6TAL.txt
+USE TAL;
+# Taylor Shipley
+# Assignment #9: Action Queries - TAL Distributors Database
+
+DROP TABLE IF EXISTS NONGAME;
+
+#1. Create a NONGAME table with the structure shown in Figure 6-28.
+
+CREATE TABLE NONGAME (ITEM_NUM CHAR(4) NOT NULL, DESCRIPTION CHAR(30), ON_HAND DECIMAL(4,0), CATEGORY CHAR(3), PRICE DECIMAL(6,2), PRIMARY KEY (ITEM_NUM));
+SELECT * FROM NONGAME;
+
+#2. Insert into the NONGAME table the item number, description, number of units on hand, category, and unit price from the ITEM table for each item that is not in category GME.
+
+INSERT INTO NONGAME (ITEM_NUM, DESCRIPTION, ON_HAND, CATEGORY, PRICE) SELECT ITEM_NUM, DESCRIPTION, ON_HAND, CATEGORY, PRICE FROM ITEM WHERE NOT CATEGORY = 'GME'; 
+SELECT * FROM NONGAME;
+
+#3. In the NONGAME table, change the description of item number DL51 to “Classic Train Set.”
+
+UPDATE NONGAME SET DESCRIPTION = 'CLASSIC TRAIN SET' WHERE ITEM_NUM = 'DL51';
+SELECT DESCRIPTION,ITEM_NUM FROM NONGAME WHERE ITEM_NUM = 'DL51';
+
+#4. In the NONGAME table, increase the price of each item in category TOY by two percent. (Hint: Multiply each price by 1.02.)
+
+UPDATE NONGAME SET PRICE = PRICE * 1.02 WHERE CATEGORY = 'TOY';
+SELECT ITEM_NUM, PRICE FROM NONGAME WHERE CATEGORY = 'TOY';
+
+#5. Add the following item to the NONGAME table: item number: TL92; description: Dump Truck; number of units on hand: 10; category: TOY; and price: 59.95.
+
+INSERT INTO NONGAME (ITEM_NUM, DESCRIPTION, ON_HAND, CATEGORY, PRICE) VALUES ('TL92', 'DUMP TRUCK', 10, 'TOY', 59.95); 
+SELECT * FROM NONGAME WHERE ITEM_NUM = 'TL92';
+
+#6. Delete every item in the NONGAME table for which the category is PZL.
+
+DELETE FROM NONGAME WHERE CATEGORY = 'PZL';
+SELECT ITEM_NUM, CATEGORY FROM NONGAME;
+
+#7. In the NONGAME table, change the category for item FD11 to null.
+
+UPDATE NONGAME SET CATEGORY = NULL WHERE ITEM_NUM = 'FD11';
+SELECT ITEM_NUM, CATEGORY FROM NONGAME WHERE ITEM_NUM = 'FD11';
+
+#8. Add a column named ON_HAND_VALUE to the NONGAME table. The on-hand value is a seven-digit number with two decimal places that represents the product of the number of units on hand and the price. Then set all values of ON_HAND_VALUE to ON_HAND * PRICE.
+
+ALTER TABLE NONGAME ADD ON_HAND_VALUE DECIMAL(7,2);
+UPDATE NONGAME SET ON_HAND_VALUE = (ON_HAND * PRICE);
+SELECT * FROM NONGAME;
+
+#9. In the NONGAME table, increase the length of the DESCRIPTION column to 40 characters.
+
+ALTER TABLE NONGAME MODIFY COLUMN DESCRIPTION CHAR(40);
+SELECT * FROM NONGAME;
+
+#10. Remove the NONGAME table from the TAL Distributors database.
+
+DROP TABLE IF EXISTS NONGAME;
+
+notee

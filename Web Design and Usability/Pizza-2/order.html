@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="description" content= "Module 2: Assignment #2 - Horizontal Menu">
+      <meta name="author" content="Taylor Shipley">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta https-equiv="content-security-policy" content="default-src 'self'">
+      <title>Horizontal Menu: Order</title>
+	  <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+<body>
+   <blockquote>
+     <blockquote>
+       <blockquote>
+         <blockquote>
+           <blockquote>
+             <blockquote>
+               <blockquote>
+                 <blockquote>
+                   <blockquote>
+                     <blockquote>
+                       <blockquote>
+                         <h1><strong>Order Page</strong></h1>
+                       </blockquote>
+                     </blockquote>
+                   </blockquote>
+                 </blockquote>
+               </blockquote>
+             </blockquote>
+           </blockquote>
+         </blockquote>
+       </blockquote>
+     </blockquote>
+</blockquote>
+<ul class="menu">
+  <li class="menu"><a href="index.html">Home</a></li>
+  <li class="menu"><a href="contact.html">Contact</a></li>
+  <li class="menu"><a href="about.html">About</a></li>  
+  <li class="menu"><a class="active" href="order.html">Order</a></li>
+</ul>
+<br><br>
+<div class = "paragraph">
+	<img src="img/orderPIC.png" alt="pizza" class="tile">
+	<p>
+		Order your favorite pizzas here. 
+		Delivery in 30 minutes or less because we hired Formula-1 racers as our drivers.
+		Left over pizza is delicous so order plenty enough for today and tomorrow. 
+		Try any number of combination of options to design your perfect pizza
+	</p>
+        </div>
+	<form class = "container" action="https://www.stonecoldprofessor.com/pizza-order.php" method="post">
+		<ul class="flex-outer">
+      	<li>
+		<label for="first"> First Name</label>
+		<input placeholder= "Bruce" name="first" type="text">
+		</li>
+		<li>
+		<label for="last"> Last Name</label>
+		<input placeholder = "Wayne" name= "last" type="text">
+		</li>
+		<li>
+		<label for="add1"> Address 1</label>
+		<input placeholder = "1007 Mountain Drive" name= "add1" type="text" required>
+		</li>
+		<li>
+		<label for="add2"> Address 2</label>
+		<input placeholder = "Apt 1" name= "add2" type="text">
+		</li>
+		<li>
+		<label for="city"> City</label>
+		<input placeholder= "Gotham" name= "city" type ="text" required>
+		</li>
+		<li>
+		<label for= "state">State</label>
+		<select placeholder= "State" id="state" name="state" required>
+			<option value="" disabled selected hidden></option>
+			<option value="AL">Alabama</option>
+			<option value="AK">Alaska</option>
+			<option value="AZ">Arizona</option>
+			<option value="AR">Arkansas</option>
+			<option value="CA">California</option>
+			<option value="CO">Colorado</option>
+			<option value="CT">Connecticut</option>
+			<option value="DE">Delaware</option>
+			<option value="DC">District Of Columbia</option>
+			<option value="FL">Florida</option>
+			<option value="GA">Georgia</option>
+			<option value="HI">Hawaii</option>
+			<option value="ID">Idaho</option>
+			<option value="IL">Illinois</option>
+			<option value="IN">Indiana</option>
+			<option value="IA">Iowa</option>
+			<option value="KS">Kansas</option>
+			<option value="KY">Kentucky</option>
+			<option value="LA">Louisiana</option>
+			<option value="ME">Maine</option>
+			<option value="MD">Maryland</option>
+			<option value="MA">Massachusetts</option>
+			<option value="MI">Michigan</option>
+			<option value="MN">Minnesota</option>
+			<option value="MS">Mississippi</option>
+			<option value="MO">Missouri</option>
+			<option value="MT">Montana</option>
+			<option value="NE">Nebraska</option>
+			<option value="NV">Nevada</option>
+			<option value="NH">New Hampshire</option>
+			<option value="NJ">New Jersey</option>
+			<option value="NM">New Mexico</option>
+			<option value="NY">New York</option>
+			<option value="NC">North Carolina</option>
+			<option value="ND">North Dakota</option>
+			<option value="OH">Ohio</option>
+			<option value="OK">Oklahoma</option>
+			<option value="OR">Oregon</option>
+			<option value="PA">Pennsylvania</option>
+			<option value="RI">Rhode Island</option>
+			<option value="SC">South Carolina</option>
+			<option value="SD">South Dakota</option>
+			<option value="TN">Tennessee</option>
+			<option value="TX">Texas</option>
+			<option value="UT">Utah</option>
+			<option value="VT">Vermont</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="WV">West Virginia</option>
+			<option value="WI">Wisconsin</option>
+			<option value="WY">Wyoming</option>
+		</select>				
+		</li>
+		<li>
+		<label for="zip"> Zip Code</label>
+		<input placeholder = "53540" name= "add2" type="text" required>
+		</li>
+		<li>	
+		<label for="phone"> Phone</label>
+		<input placeholder = "735-185-7301" name= "phone" type="text" required>
+		</li>
+		<li>
+		<label for="email">Email Address</label>
+		<input placeholder = "B.Wayne@Batmail.com" name="email" type="text" required>
+		</li>
+		<li>
+		<label for="comments">Comments</label>
+		<input placeholder = "I am not Batman!" name="comments" type="textarea">
+		</li>
+		<li>
+		<label for="crust">Crust</label>
+		<select id="crust" name="crust">
+			<option value="regular">Regular</option>
+			<option value="thin">Thin</option>
+			<option value="thick">Thick</option>
+		</select>
+		</li><br>
+		<li>
+			<h3>Size:</h3>
+			<ul>
+		  	<li>
+		  	<label>
+		    <input type="radio" name="size" value="baby" id="size_0">
+		    Baby</label>
+		  	<br>
+		  	<label>
+		    <input type="radio" name="size" value="x-small" id="size_1">
+		    X-Small</label>
+		  	<br>
+		  	<label>
+		    <input type="radio" name="size" value="personal" id="size_2">
+		    Personal</label>
+		  	<br>
+		  	<label>
+		    <input type="radio" name="size" value="pan" id="size_3">
+		    Pan</label>
+		  	<br>
+		    <label>
+		    <input type="radio" name="size" value="small" id="size_4">
+		    Small</label>
+		  	<br>
+			<label>
+		    <input type="radio" name="size" value="medium" id="size_5">
+		    Medium</label>
+		  	<br>
+			<label>
+		    <input type="radio" name="size" value="large" id="size_6">
+		    Large</label>
+		  	<br>
+			<label>
+		    <input type="radio" name="size" value="x-large" id="size_7">
+		    X-Large</label>
+			<br>
+			<label>
+		    <input type="radio" name="size" value="4x4 square" id="size_8">
+		    Catering Square 4x4</label>
+		  	<br>
+				</li>
+			</ul>
+		</li><br>
+            <li>
+            <h3>Choose Toppings: </h3>
+			<ul>
+            <li><input type="checkbox" name="toppings[]" id="pepperoni" value="Pepperoni">
+            	<label for="pepperoni">Pepperoni</label>
+            <input type="checkbox" name="toppings[]" id="pineapple" value="Pineapple">
+            	<label for="pineapple">Pineapple</label>
+            <input type="checkbox" name="toppings[]" id="olive" value="Olive">
+            	<label for="olive">Olive</label>
+            <input type="checkbox" name="toppings[]" id="bacon" value="Bacon">
+            	<label for="bacon">Bacon</label>
+            <input type="checkbox" name="toppings[]" id="onion" value="Onion">
+            	<label for="onion">Onions</label>
+            <input type="checkbox" name="toppings[]" id="spinach" value="Spinach">
+				<label for="spinach">Spinach</label>
+            <input type="checkbox" name="toppings[]" id="mushroom" value="Mushroom">
+            	<label for="mushroom">Mushroom</label>
+            <input type="checkbox" name="toppings[]" id="sausage" value="Sausage">
+            	<label for="sausage">Sausage</label></li>
+            <li><input type="checkbox" name="toppings[]" id="ham" value="Ham">
+            	<label for="ham">Ham</label>
+            <input type="checkbox" name="toppings[]" id="chicken" value="Chicken">
+            	<label for="chicken">Chicken</label>
+            <input type="checkbox" name="toppings[]" id="bellPepper" value="Bell Pepper">
+            	<label for="bellPepper">Bell Pepper</label>
+            <input type="checkbox" name="toppings[]" id="steak" value="Steak">
+            	<label for="steak">Steak</label>
+            <input type="checkbox" name="toppings[]" id="bananaPepper" value="Banana Pepper">
+            	<label for="bananaPepper">Banana Pepper</label>
+            <input type="checkbox" name="toppings[]" id="anchovies" value="Anchovies">
+            	<label for="anchovies">Anchovies</label>
+            <input type="checkbox" name="toppings[]" id="barbecueSauce" value="Barbecue Sauce">
+            	<label for="barbecueSauce">BBQ Sauce</label>
+            <input type="checkbox" name="toppings[]" id="garlic" value="Garlic">
+				<label for="garlic">Garlic</label></li>
+            <li><input type="checkbox" name="toppings[]" id="HotSauce" value="Hot Sauce">
+            	<label for="HotSauce">Hot Sauce</label>
+            <input type="checkbox" name="toppings[]" id="broccoli" value="Broccoli">
+            	<label for="broccoli">Broccoli</label>
+            <input type="checkbox" name="toppings[]" id="basil" value="Basil">
+            	<label for="basil">Basil</label>
+            <input type="checkbox" name="toppings[]" id="salami" value="Salami">
+            	<label for="salami">Salami</label>
+            <input type="checkbox" name="toppings[]" id="tomato" value="Tomato">
+            	<label for="tomato">Tomato</label>
+            <input type="checkbox" name="toppings[]" id="prosciutto" value="Prosciutto">
+            	<label for="prosciutto">Prosciutto</label>
+            <input type="checkbox" name="toppings[]" id="jalapeno" value="Jalapeno">
+            	<label for="jalapeno">Jalapeno</label>
+            <input type="checkbox" name="toppings[]" id="groundBeef" value="Ground Beef">
+            	<label for="groundBeef">Ground Beef</label>
+            <input type="checkbox" name="toppings[]" id="oregano" value="Oregano">
+            	<label for="oregano">Oregano</label></li>
+            <br>
+            <br>
+			</ul></li>
+		<li>
+		<input type = "submit">
+		<input type= "reset" value="Clear">
+		</li>
+		</ul>
+	</form>
+</body>
+</html>

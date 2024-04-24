@@ -1,0 +1,32 @@
+/*Creates a rectangle 600 by 300 pixels and colors it brown. */
+.table
+{ 
+	width: 600px;
+    height: 300px;
+    background: brown;
+}
+
+/*Creates a square, halfs the border turning it into a circle, and colors it beige.*/
+.plate
+{
+    width:175px;
+    height:175px;
+    background: beige;
+    border-radius: 50%;
+}
+
+/*Creates a square, colors the top right half SandyBrown and the other half is transparent.*/
+.halfSandwitch
+{
+      border-top: 100px solid SandyBrown;
+      border-left: 100px solid transparent;
+}
+/*Creates a slategrey colored block with a complex shape by adjusting various border radii*/
+.rock
+{
+      display: block;
+      width: 30px;
+      height: 40px;
+      background-color: slategrey;
+      border-radius: 20% 21% 10% 72% / 32% 46% 82% 13%;
+}

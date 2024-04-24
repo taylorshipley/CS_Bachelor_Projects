@@ -1,0 +1,177 @@
+mysql> USE TAL;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> # Taylor Shipley
+mysql> # Assignment #9: Action Queries - TAL Distributors Database
+mysql> 
+mysql> DROP TABLE IF EXISTS NONGAME;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> 
+mysql> #1. Create a NONGAME table with the structure shown in Figure 6-28.
+mysql> 
+mysql> CREATE TABLE NONGAME (ITEM_NUM CHAR(4) NOT NULL, DESCRIPTION CHAR(30), ON_HAND DECIMAL(4,0), CATEGORY CHAR(3), PRICE DECIMAL(6,2), PRIMARY KEY (ITEM_NUM));
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM NONGAME;
+Empty set (0.01 sec)
+
+mysql> 
+mysql> #2. Insert into the NONGAME table the item number, description, number of units on hand, category, and unit price from the ITEM table for each item that is not in category GME.
+mysql> 
+mysql> INSERT INTO NONGAME (ITEM_NUM, DESCRIPTION, ON_HAND, CATEGORY, PRICE) SELECT ITEM_NUM, DESCRIPTION, ON_HAND, CATEGORY, PRICE FROM ITEM WHERE NOT CATEGORY = 'GME'; 
+Query OK, 9 rows affected (0.00 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM NONGAME;
++----------+---------------------------+---------+----------+--------+
+| ITEM_NUM | DESCRIPTION               | ON_HAND | CATEGORY | PRICE  |
++----------+---------------------------+---------+----------+--------+
+| CD33     | Wood Block Set (48 piece) |      36 | TOY      |  89.49 |
+| DL51     | Classic Railway Set       |      12 | TOY      | 107.95 |
+| DR67     | Giant Star Brain Teaser   |      24 | PZL      |  31.95 |
+| FD11     | Rocking Horse             |       8 | TOY      | 124.95 |
+| FH24     | Puzzle Gift Set           |      65 | PZL      |  38.95 |
+| KD34     | Pentominoes Brain Teaser  |      60 | PZL      |  14.95 |
+| MT03     | Zauberkasten Brain Teaser |      45 | PZL      |  45.79 |
+| NL89     | Wood Block Set (62 piece) |      32 | TOY      | 119.75 |
+| TW35     | Fire Engine               |      30 | TOY      | 118.95 |
++----------+---------------------------+---------+----------+--------+
+9 rows in set (0.00 sec)
+
+mysql> 
+mysql> #3. In the NONGAME table, change the description of item number DL51 to “Classic Train Set.”
+mysql> 
+mysql> UPDATE NONGAME SET DESCRIPTION = 'CLASSIC TRAIN SET' WHERE ITEM_NUM = 'DL51';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT DESCRIPTION,ITEM_NUM FROM NONGAME WHERE ITEM_NUM = 'DL51';
++-------------------+----------+
+| DESCRIPTION       | ITEM_NUM |
++-------------------+----------+
+| CLASSIC TRAIN SET | DL51     |
++-------------------+----------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> #4. In the NONGAME table, increase the price of each item in category TOY by two percent. (Hint: Multiply each price by 1.02.)
+mysql> 
+mysql> UPDATE NONGAME SET PRICE = PRICE * 1.02 WHERE CATEGORY = 'TOY';
+Query OK, 5 rows affected, 5 warnings (0.00 sec)
+Rows matched: 5  Changed: 5  Warnings: 5
+
+mysql> SELECT ITEM_NUM, PRICE FROM NONGAME WHERE CATEGORY = 'TOY';
++----------+--------+
+| ITEM_NUM | PRICE  |
++----------+--------+
+| CD33     |  91.28 |
+| DL51     | 110.11 |
+| FD11     | 127.45 |
+| NL89     | 122.15 |
+| TW35     | 121.33 |
++----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> #5. Add the following item to the NONGAME table: item number: TL92; description: Dump Truck; number of units on hand: 10; category: TOY; and price: 59.95.
+mysql> 
+mysql> INSERT INTO NONGAME (ITEM_NUM, DESCRIPTION, ON_HAND, CATEGORY, PRICE) VALUES ('TL92', 'DUMP TRUCK', 10, 'TOY', 59.95); 
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM NONGAME WHERE ITEM_NUM = 'TL92';
++----------+-------------+---------+----------+-------+
+| ITEM_NUM | DESCRIPTION | ON_HAND | CATEGORY | PRICE |
++----------+-------------+---------+----------+-------+
+| TL92     | DUMP TRUCK  |      10 | TOY      | 59.95 |
++----------+-------------+---------+----------+-------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> #6. Delete every item in the NONGAME table for which the category is PZL.
+mysql> 
+mysql> DELETE FROM NONGAME WHERE CATEGORY = 'PZL';
+Query OK, 4 rows affected (0.00 sec)
+
+mysql> SELECT ITEM_NUM, CATEGORY FROM NONGAME;
++----------+----------+
+| ITEM_NUM | CATEGORY |
++----------+----------+
+| CD33     | TOY      |
+| DL51     | TOY      |
+| FD11     | TOY      |
+| NL89     | TOY      |
+| TL92     | TOY      |
+| TW35     | TOY      |
++----------+----------+
+6 rows in set (0.00 sec)
+
+mysql> 
+mysql> #7. In the NONGAME table, change the category for item FD11 to null.
+mysql> 
+mysql> UPDATE NONGAME SET CATEGORY = NULL WHERE ITEM_NUM = 'FD11';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT ITEM_NUM, CATEGORY FROM NONGAME WHERE ITEM_NUM = 'FD11';
++----------+----------+
+| ITEM_NUM | CATEGORY |
++----------+----------+
+| FD11     | NULL     |
++----------+----------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> #8. Add a column named ON_HAND_VALUE to the NONGAME table. The on-hand value is a seven-digit number with two decimal places that represents the product of the number of units on hand and the price. Then set all values of ON_HAND_VALUE to ON_HAND * PRICE.
+mysql> 
+mysql> ALTER TABLE NONGAME ADD ON_HAND_VALUE DECIMAL(7,2);
+Query OK, 0 rows affected (0.00 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE NONGAME SET ON_HAND_VALUE = (ON_HAND * PRICE);
+Query OK, 6 rows affected (0.00 sec)
+Rows matched: 6  Changed: 6  Warnings: 0
+
+mysql> SELECT * FROM NONGAME;
++----------+---------------------------+---------+----------+--------+---------------+
+| ITEM_NUM | DESCRIPTION               | ON_HAND | CATEGORY | PRICE  | ON_HAND_VALUE |
++----------+---------------------------+---------+----------+--------+---------------+
+| CD33     | Wood Block Set (48 piece) |      36 | TOY      |  91.28 |       3286.08 |
+| DL51     | CLASSIC TRAIN SET         |      12 | TOY      | 110.11 |       1321.32 |
+| FD11     | Rocking Horse             |       8 | NULL     | 127.45 |       1019.60 |
+| NL89     | Wood Block Set (62 piece) |      32 | TOY      | 122.15 |       3908.80 |
+| TL92     | DUMP TRUCK                |      10 | TOY      |  59.95 |        599.50 |
+| TW35     | Fire Engine               |      30 | TOY      | 121.33 |       3639.90 |
++----------+---------------------------+---------+----------+--------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> 
+mysql> #9. In the NONGAME table, increase the length of the DESCRIPTION column to 40 characters.
+mysql> 
+mysql> ALTER TABLE NONGAME MODIFY COLUMN DESCRIPTION CHAR(40);
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM NONGAME;
++----------+---------------------------+---------+----------+--------+---------------+
+| ITEM_NUM | DESCRIPTION               | ON_HAND | CATEGORY | PRICE  | ON_HAND_VALUE |
++----------+---------------------------+---------+----------+--------+---------------+
+| CD33     | Wood Block Set (48 piece) |      36 | TOY      |  91.28 |       3286.08 |
+| DL51     | CLASSIC TRAIN SET         |      12 | TOY      | 110.11 |       1321.32 |
+| FD11     | Rocking Horse             |       8 | NULL     | 127.45 |       1019.60 |
+| NL89     | Wood Block Set (62 piece) |      32 | TOY      | 122.15 |       3908.80 |
+| TL92     | DUMP TRUCK                |      10 | TOY      |  59.95 |        599.50 |
+| TW35     | Fire Engine               |      30 | TOY      | 121.33 |       3639.90 |
++----------+---------------------------+---------+----------+--------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> 
+mysql> #10. Remove the NONGAME table from the TAL Distributors database.
+mysql> 
+mysql> DROP TABLE IF EXISTS NONGAME;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> 
+mysql> notee

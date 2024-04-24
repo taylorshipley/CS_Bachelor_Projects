@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+	<meta name="description" content= "Module 5: Assignment #5 - Tic Tac Toe">
+	<meta name="author" content="Taylor Shipley">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta https-equiv="content-security-policy" content="default-src 'self'">
+	<title>Tic Tac Toe</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tic-Tac-Toe: 1P</h1>
+		<table>
+		  <tbody>
+			<tr>
+			  <td><a href="index.html">1 PLAYER MODE</a></td>
+			  <td><a href="multiplayer.html">2 PLAYER MODE</a></td>
+			</tr>
+		  </tbody>
+		</table>
+		<table id= "scoreboard" width="290" border="50">
+  <tbody>
+    <tr>
+      <td><strong>Player1 Wins</strong></td>
+      <td><strong>Player2 Wins</strong></td>
+	  </tr>
+    <tr>
+      <td id = "P1Wins">&nbsp;</td>
+      <td id = "P2Wins">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<button onclick="clearScore()">Clear Scores</button>
+<br>
+        <div class="play-area">
+	<div id="block_0" class="block"></div>
+		<div id="block_1" class="block"></div>
+		<div id="block_2" class="block"></div>
+		<div id="block_3" class="block"></div>
+		<div id="block_4" class="block"></div>
+		<div id="block_5" class="block"></div>
+		<div id="block_6" class="block"></div>
+		<div id="block_7" class="block"></div>
+		<div id="block_8" class="block"></div>
+        </div>
+		<br>
+		<button onclick="reset_board()">PLAY AGAIN</button>
+		<br>
+        <h2 id="winner"></h2>
+    </div>
+<fieldset>
+<blockquote>
+  <h2>Player Names</h2>
+</blockquote>
+<label for="name1">Player Name</label>
+<input value= "Player1" id="name1" type="text"><br>
+<br><label for="name2">Computer Name</label>
+<input value= "Computer" id="name2" type="text">
+<p id = "RadioForm">
+  <label>
+	<h2>Player Token</h2>
+	<label>
+    <input type="radio" name="TokenSelector" value="O" id="TokenSelector_O" checked>
+    O-Token</label>
+  <br>
+    <input type="radio" name="TokenSelector" value="X" id="TokenSelector_X">
+    X-Token</label>
+  <br>
+</p>
+<button onclick="updateName(); updateToken()">Submit</button>
+</fieldset>
+<script src="js/app.js"></script></body>
+</html>

@@ -1,0 +1,67 @@
+USE COLONIAL
+tee /Users/Tays012/Documents/CSIS1550/Shipley_Taylor_Ch4COLONIAL.txt
+
+# Taylor Shipley
+# Assignment #6: Single-Table Query for the COLONIAL Adventure Tours
+
+# 1. List the last name of each guide that does not live in Massachusetts (MA).
+SELECT LAST_NAME FROM GUIDE WHERE NOT STATE = 'MA';
+
+# 2. List the trip name of each trip that has the type Biking.
+SELECT TRIP_NAME FROM TRIP WHERE TYPE = 'Biking';
+
+# 3. List the trip name of each trip that has the season Summer.
+SELECT TRIP_NAME FROM TRIP WHERE SEASON = 'SUMMER';
+
+# 4. List the trip name of each trip that has the type Hiking and that has a distance longer than 10 miles.
+SELECT TRIP_NAME FROM TRIP WHERE TYPE = 'Hiking' AND DISTANCE > 10;
+
+# 5. List the customer number, customer last name, and customer first name of each customer that lives in New Jersey (NJ), New York (NY) or Pennsylvania (PA). Use the IN operator in your command.
+SELECT CUSTOMER_NUM, LAST_NAME, FIRST_NAME FROM CUSTOMER WHERE STATE IN ('NJ', 'NY', 'PA');
+
+# 6. Repeat Exercise 5 and sort the records by state in descending order and then by customer last name in ascending order.
+SELECT CUSTOMER_NUM, LAST_NAME, FIRST_NAME FROM CUSTOMER WHERE STATE IN ('NJ', 'NY', 'PA') ORDER BY STATE DESC, LAST_NAME ASC;
+
+# 7. How many trips are in the states of Maine (ME) or Massachusetts (MA)?
+SELECT COUNT(STATE) FROM CUSTOMER WHERE STATE IN ('ME', 'MA');
+
+# 8. How many trips originate in each state?
+SELECT COUNT(STATE) FROM TRIP GROUP BY STATE;
+
+# 9. How many reservations include a trip price that is greater than $20 but less than $75?
+SELECT COUNT(TRIP_ID) FROM RESERVATION WHERE TRIP_PRICE > 20 AND TRIP_PRICE < 75;
+
+# 10. How many trips of each type are there?
+SELECT COUNT(TRIP_ID) FROM TRIP GROUP BY TYPE;
+
+# 11. Colonial Adventure Tours calculates the total price of a trip by adding the trip price plus other fees and multiplying the result by the number of persons included in the reservation. List the reservation ID, trip ID, customer number, and total price for all reservations where the number of persons is greater than four. Use the column name TOTAL_PRICE for the calculated field.
+SELECT RESERVATION_ID, TRIP_ID, CUSTOMER_NUM, ((TRIP_PRICE + OTHER_FEES) * NUM_PERSONS) AS TOTAL_PRICE FROM RESERVATION WHERE NUM_PERSONS > 4;
+
+# 12. Find the name of each trip containing the word “Pond.”
+SELECT TRIP_NAME FROM TRIP WHERE TRIP_NAME LIKE '%Pond%';
+
+# 13. List the guide’s last name and guide’s first name for all guides that were hired before June 10, 2013.
+SELECT LAST_NAME, FIRST_NAME FROM GUIDE WHERE HIRE_DATE < '2013-06-10';
+
+# 14. What is the average distance and the average maximum group size for each type of trip?
+SELECT AVG(DISTANCE), AVG(MAX_GRP_SIZE) FROM TRIP GROUP BY TYPE;
+
+# 15. Display the different seasons in which trips are offered. List each season only once.
+SELECT DISTINCT SEASON FROM TRIP;
+
+# 16. List the reservation IDs for reservations that are for a paddling trip. (Hint: Use a subquery.)
+SELECT RESERVATION_ID FROM RESERVATION INNER JOIN TRIP ON RESERVATION.TRIP_ID = TRIP.TRIP_ID WHERE TYPE = 'PADDLING';
+
+# 17. What is the longest distance for a biking trip?
+SELECT MAX(DISTANCE) FROM TRIP WHERE TYPE = 'BIKING';
+
+# 18. For each trip in the RESERVATION table that has more than one reservation, group by trip ID and sum the trip price. (Hint: Use the COUNT function and a HAVING clause.)
+SELECT TRIP_ID, SUM(TRIP_PRICE) FROM RESERVATION GROUP BY TRIP_ID HAVING COUNT(RESERVATION_ID) > 1;
+
+# 19. How many current reservations does Colonial Adventure Tours have and what is the total number of persons for all reservations?
+SELECT COUNT(RESERVATION_ID), SUM(NUM_PERSONS) FROM RESERVATION;
+
+# 20. List the reservation ID and trip ID for all trips that occur in the month of July, 2016. There are multiple ways to create this query. Write an alternate command that would produce the same result.
+SELECT RESERVATION_ID, TRIP_ID FROM RESERVATION WHERE TRIP_DATE BETWEEN 2016-07-01 AND 2016-07-31;
+SELECT RESERVATION_ID, TRIP_ID FROM RESERVATION WHERE MONTH(TRIP_DATE) = 7 AND YEAR(TRIP_DATE) = 2016;
+notee

@@ -1,0 +1,83 @@
+USE GameOfficialScheduler;
+GO
+
+SELECT
+'{"offFirstName": "'+ Official.firstName +'", '+
+'"offLastName": "'+ Official.lastName +'",'+
+'"offEmailAddress": "' + Official.emailAddress +'", '+
+'"offStreetAddress": "' + Official.streetAddress +'", '+
+'"offCity": "' + Official.City + '", '+
+'"offState": "' + Official.State +'", '+
+'"offZip": "' + Official.Zip + '", '+
+'"offPositionName": "' + Official.positionName +'",'+
+'"offFees": "' + CONVERT(varchar(max),Official.feesAccumulated) +'"}'
+FROM
+	(SELECT DISTINCT gsc. schoolName AS HomeTeamName, gameDateTime, odSportlevel_id, gg.homeTeam, gg.odGame_id, gs.siteName
+	FROM gosGame gg
+	INNER JOIN gosSchool gsc
+	ON gg.homeTeam = gsc.odSiteName_id
+	INNER JOIN gosSite gs
+	ON gs.odSiteName_id = gg.odSiteName_id) HTT
+INNER JOIN
+	(SELECT DISTINCT gsc.schoolName AS VisitingTeamName, gameDateTime, odSportLevel_id, gg.visitingTeam, gg.odGame_id
+	FROM gosGame gg
+	INNER JOIN gosSchool gsc
+	ON gg.visitingTeam = gsc.odSiteName_id) VTT
+ON HTT.odGame_id = VTT.odGame_id
+AND HTT.odSportlevel_id = VTT.odSportLevel_id
+INNER JOIN gosSportLevel
+ON HTT.odSportLevel_id = gosSportLevel.odSportLevel_id
+INNER JOIN
+	(SELECT gg.odGame_id, gu.firstName, gu.lastName, gu.emailAddress, gu.streetAddress, gu.City, gu.State, gu.Zip, gp.positionName, gu.feesAccumulated
+	FROM gosGameOfficial gg
+	INNER JOIN gosGameOfficial gof
+	ON gg.odUser_id = gof.odUser_id
+	INNER JOIN gosUser gu
+	ON gof.odUser_id = gu.odUser_id
+	INNER JOIN gosOfficiatingPosition gp
+	ON gg.odOfficiatingPosition_id = gp.odOfficiatingPosition_id) Official
+ON Official.odGame_id = HTT.odGame_id
+WHERE HTT. gameDateTime = '2020-09-04 19:00'
+AND HTT. HomeTeamName ='Clearfield High School'
+AND VTT.VisitingTeamName = 'Davis High School'
+AND HTT.SiteName ='Clearfield High School'
+ORDER BY HTT.odGame_id;
+
+SELECT '"db.OfficiatingDatabase.save({'+
+'"gameDateTime": "'+ CONVERT(varchar (max) , HTT.gameDateTime) +'", '+
+'"homeTeamName": "'+ HTT.HomeTeamName +'", '+
+'"visitingTeamName": "' + VTT.VisitingTeamName +'", '+
+'"siteName": "' + HTT.SiteName+ '", '+
+'"sport": "' +Sport +'",'+
+'"level": "' + [Level] +'",'+
+'"homeTeamName": "' +HTT.HomeTeamName+ '", '+
+'"homeTeamStreet": "' + HTT.streetAddress+ '", '+
+'"homeTeamCity"' + HTT.City+ '", '+
+'"homeTeamState": "' + HTT.State+ '", '+
+'"homeTeamZip":"' + HTT.Zip + '",'+
+'"homeTeamPhone": "' + HTT.phoneNumber+ '", '+
+'"homeTeamName": ' + VTT.VisitingTeamName+ '", '+
+'"homeTeamStreet": "' + VTT.streetAddress+ '", '+
+'"homeTeamCity": "' + VTT.City+ '", '+
+'"vtCity": "' + VTT.State+ '", '+
+'"homeTeamZip": "' +VTT.Zip+ '", '+
+'"homeTeamPhone": "' +VTT. workPhoneNumber+ '", "Officials":['
+FROM
+	(SELECT DISTINCT gsc. schoolName AS HomeTeamName, gameDateTime, odSportLevel_id, gg.homeTeam, gg.odGame_id
+	, gs.SiteName, gsc.streetAddress, gsc.City, gsc.State, gsc.zip, gsc.workPhoneNumber 
+	FROM gosGame gg
+	INNER JOIN gosSchool gsc
+	ON gg. homeTeam = gsc.odSiteName_id
+	INNER JOIN gosSite gs
+	ON gs.odSiteName_id = gg.odSiteName_id) HTT
+INNER JOIN
+	(SELECT DISTINCT gsc.schoolName AS VistingTeamName, gameDateTime, odSportLevel_id, gg.homeTeam, gg.odGame_id
+	, gsc.schoolName, gsc.streetAddress, gsc.City, gsc.State, gsc.zip, gsc.workPhoneNumber 
+	FROM gosGame gg
+	INNER JOIN gosSchool gsc
+	ON gg.visitingTeam = gsc.odSiteName_id) VTT
+ON HTT.odGame_id = VTT.odGame_id
+AND HTT.odSportLevel_id = VTT.odSportLevel_id
+INNER JOIN gosSportLevel gsp
+ON gsp.odSportLevel_id = HTT.odSportLevel_id
+ORDER BY HTT.odGame_id;

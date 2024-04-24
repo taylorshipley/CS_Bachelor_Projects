@@ -1,0 +1,79 @@
+USE COLONIAL;
+tee /Users/Tays012/Documents/CSIS1550/Shipley_Taylor_Ch5COLONIAL.txt
+
+# Taylor Shipley
+# Assignment #8: Multiple-Table Queries -- COLONIAL Adventure Tours Database
+
+#1. For each reservation, list the reservation ID, trip ID, customer number, and customer last name. Order the results by customer last name.
+
+SELECT RESERVATION.RESERVATION_ID, RESERVATION.TRIP_ID, RESERVATION.CUSTOMER_NUM, CUSTOMER.LAST_NAME FROM RESERVATION, CUSTOMER WHERE RESERVATION.CUSTOMER_NUM = CUSTOMER.CUSTOMER_NUM ORDER BY CUSTOMER.LAST_NAME;
+
+#2. For each reservation for customer Ryan Goff, list the reservation ID, trip ID, and number of persons.
+
+SELECT RESERVATION.RESERVATION_ID, RESERVATION.TRIP_ID, RESERVATION.NUM_PERSONS FROM RESERVATION, CUSTOMER WHERE RESERVATION.CUSTOMER_NUM = CUSTOMER.CUSTOMER_NUM AND CUSTOMER.LAST_NAME = 'GOFF' AND CUSTOMER.FIRST_NAME = 'RYAN';
+
+#3. List the trip name of each trip that has Miles Abrams as a guide.
+
+SELECT TRIP.TRIP_NAME FROM TRIP, TRIP_GUIDES, GUIDE WHERE TRIP.TRIP_ID = TRIP_GUIDES.TRIP_ID AND TRIP_GUIDES.GUIDE_NUM = GUIDE.GUIDE_NUM AND GUIDE.LAST_NAME = 'ABRAMS' AND GUIDE.FIRST_NAME = 'MILES';
+
+#4. List the trip name of each trip that has the type Biking and that has Rita Boyers as a guide.
+
+SELECT TRIP.TRIP_NAME FROM TRIP, TRIP_GUIDES, GUIDE WHERE TRIP.TRIP_ID = TRIP_GUIDES.TRIP_ID AND TRIP_GUIDES.GUIDE_NUM = GUIDE.GUIDE_NUM AND GUIDE.LAST_NAME = 'BOYERS' AND GUIDE.FIRST_NAME = 'RITA' AND TRIP.TYPE = 'HIKING';
+
+#5. For each reservation that has a trip date of July 23, 2016, list the customer’s last name, the trip name, and the start location.
+
+SELECT CUSTOMER.LAST_NAME, TRIP.TRIP_NAME, TRIP.START_LOCATION FROM CUSTOMER, TRIP, RESERVATION WHERE CUSTOMER.CUSTOMER_NUM = RESERVATION.RESERVATION_ID AND RESERVATION.TRIP_ID = TRIP.TRIP_ID;
+
+#6. List the reservation ID, trip ID, and trip date for reservations for a trip in Maine (ME).
+
+SELECT RESERVATION.RESERVATION_ID, TRIP.TRIP_ID, RESERVATION.TRIP_DATE FROM RESERVATION, TRIP WHERE RESERVATION.TRIP_ID = TRIP.TRIP_ID AND TRIP.STATE = 'ME';
+
+#7. Repeat Exercise 6, but this time use the EXISTS operator in your query.
+
+SELECT RESERVATION.RESERVATION_ID, TRIP.TRIP_ID, RESERVATION.TRIP_DATE FROM RESERVATION, TRIP WHERE EXISTS (SELECT SEASON FROM TRIP WHERE RESERVATION.TRIP_ID = TRIP.TRIP_ID AND TRIP.STATE = 'ME');
+
+#8. Find the guide last name and guide first name of all guides who can lead a paddling trip. (Note: The query results should include duplicate values.)
+
+SELECT LAST_NAME, FIRST_NAME FROM GUIDE, TRIP_GUIDES, TRIP WHERE GUIDE.GUIDE_NUM = TRIP_GUIDES.GUIDE_NUM AND TRIP_GUIDES.TRIP_ID = TRIP.TRIP_ID AND TRIP.TYPE = 'PADDLING';
+
+#9. Repeat Exercise 8 but use aliases for the table names.
+
+SELECT GUIDE.FIRST_NAME AS GUIDE_FIRST_NAME, GUIDE.LAST_NAME AS GUIDE_LAST_NAME FROM GUIDE, TRIP_GUIDES, TRIP WHERE GUIDE.GUIDE_NUM = TRIP_GUIDES.GUIDE_NUM AND TRIP_GUIDES.TRIP_ID = TRIP.TRIP_ID AND TRIP.TYPE = 'PADDLING';
+
+#10. List the trip IDs and trip names for each pair of trips that have the same start location. (For example, one such pair would be trip ID 2 and trip ID 3, because the start location of both trips is Weathersfield.) The first trip ID listed should be the major sort key, and the second trip ID should be the minor sort key.
+
+SELECT TRIP_ID, TRIP_NAME FROM TRIP WHERE EXISTS (SELECT START_LOCATION FROM TRIP GROUP BY START_LOCATION HAVING COUNT(START_LOCATION) > 2) ORDER BY START_LOCATION;
+
+#11. Find the trip name of all reservations for hiking trips and sort the results by trip name in ascending order.
+
+SELECT TRIP_NAME FROM TRIP WHERE TYPE = 'HIKING' ORDER BY TRIP_NAME ASC;
+
+#12. List the number and name of each customer that either lives in the state of New Jersey (NJ), or that currently has a reservation, or both.
+
+SELECT CUSTOMER.CUSTOMER_NUM, CUSTOMER.LAST_NAME, CUSTOMER.FIRST_NAME FROM CUSTOMER, RESERVATION WHERE CUSTOMER.STATE = 'NJ' OR CUSTOMER.CUSTOMER_NUM = RESERVATION.CUSTOMER_NUM OR (CUSTOMER.STATE = 'NJ' AND CUSTOMER.CUSTOMER_NUM = RESERVATION.CUSTOMER_NUM);
+
+#13. List the number and name of each customer that lives in the state of New Jersey (NJ) and that currently has a reservation.
+
+SELECT CUSTOMER.CUSTOMER_NUM, CUSTOMER.LAST_NAME, CUSTOMER.FIRST_NAME FROM CUSTOMER, RESERVATION WHERE CUSTOMER.STATE = 'NJ' AND CUSTOMER.CUSTOMER_NUM = RESERVATION.CUSTOMER_NUM;
+
+#14. Find the trip ID and trip name for each trip whose maximum group size is greater than the maximum group size of every trip that has the type Hiking.
+
+SELECT TRIP_ID, TRIP_NAME FROM TRIP WHERE MAX_GRP_SIZE > ALL (SELECT MAX_GRP_SIZE FROM TRIP WHERE TYPE = 'HIKING');
+
+#15. Find the trip ID and trip name for each trip whose maximum group size is greater than the maximum group size of at least one trip that has the type Biking.
+
+SELECT TRIP_ID, TRIP_NAME FROM TRIP WHERE MAX_GRP_SIZE > ANY (SELECT MAX_GRP_SIZE FROM TRIP WHERE TYPE = 'BIKING');
+
+#16. Display the trip ID, trip name, and reservation ID for all trips. All trips should be included in the result. For those trips that currently do not have reservations, the reservation ID should be left blank. Order the results by trip ID.
+
+SELECT TRIP.TRIP_ID, TRIP.TRIP_NAME, RESERVATION.RESERVATION_ID FROM TRIP JOIN RESERVATION ON TRIP.TRIP_ID = RESERVATION.TRIP_ID ORDER BY TRIP.TRIP_ID;
+
+#17. Repeat Exercise 8 but list the guide name only once and sort the guide names in order by last name.
+
+SELECT LAST_NAME, FIRST_NAME FROM GUIDE,TRIP_GUIDES,TRIP WHERE GUIDE.GUIDE_NUM = TRIP_GUIDES.GUIDE_NUM AND TRIP_GUIDES.TRIP_ID = TRIP.TRIP_ID AND TRIP.TYPE = 'PADDLING' GROUP BY GUIDE.GUIDE_NUM ORDER BY GUIDE.LAST_NAME;
+
+#18. Repeat Exercise 11, but this time list only hiking trips in the state of New Hampshire (NH), list each trip only once, and sort the results in descending order by trip name.
+
+SELECT TRIP_NAME FROM TRIP WHERE TYPE = 'HIKING' AND STATE = 'NH' GROUP BY TRIP_NAME ORDER BY TRIP_NAME DESC;
+
+Notee

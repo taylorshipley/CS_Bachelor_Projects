@@ -1,0 +1,352 @@
+mysql> 
+mysql> # Taylor Shipley
+mysql> # Assignment #6: Single-Table Query for the COLONIAL Adventure Tours
+mysql> 
+mysql> 
+mysql> #1. For each order, list the order number and order date along with the number and name of the customer that placed the order.
+mysql> 
+mysql> SELECT Orders.Order_NUM,Customer.Customer_Num, Customer.Customer_Name, Orders.Order_Date FROM Orders, Customer WHERE CUSTOMER.CUSTOMER_NUM = Orders.CUSTOMER_NUM;
++-----------+--------------+----------------------------+------------+
+| Order_NUM | Customer_Num | Customer_Name              | Order_Date |
++-----------+--------------+----------------------------+------------+
+| 51608     | 126          | Toys Galore                | 2015-10-12 |
+| 51610     | 334          | The Everything Shop        | 2015-10-12 |
+| 51613     | 386          | Johnson's Department Store | 2015-10-13 |
+| 51614     | 260          | Brookings Direct           | 2015-10-13 |
+| 51617     | 586          | Almondton General Store    | 2015-10-15 |
+| 51619     | 126          | Toys Galore                | 2015-10-15 |
+| 51623     | 586          | Almondton General Store    | 2015-10-15 |
+| 51625     | 796          | Unique Gifts               | 2015-10-16 |
++-----------+--------------+----------------------------+------------+
+8 rows in set (0.00 sec)
+
+mysql> 
+mysql> #2. For each order placed on October 15, 2015, list the order number along with the number and name of the customer that placed the order.
+mysql> 
+mysql> SELECT Orders.Order_NUM, Customer.Customer_Name, Customer.Customer_Num Orders FROM Orders, Customer WHERE CUSTOMER.CUSTOMER_NUM = Orders.CUSTOMER_NUM AND ORDER_DATE = '2015-10-15';
++-----------+-------------------------+--------+
+| Order_NUM | Customer_Name           | Orders |
++-----------+-------------------------+--------+
+| 51617     | Almondton General Store | 586    |
+| 51619     | Toys Galore             | 126    |
+| 51623     | Almondton General Store | 586    |
++-----------+-------------------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> 
+mysql> #3. For each order, list the order number, order date, item number, number of units ordered, and quoted price for each order line that makes up the order.
+mysql> 
+mysql> SELECT Orders.Order_NUM, Orders.Order_Date, ORDER_LINE.ITEM_NUM, ORDER_LINE.NUM_ORDERED, ORDER_LINE.QUOTED_PRICE FROM ORDERS, ORDER_LINE WHERE Orders.ORDER_NUM = ORDER_LINE.ORDER_NUM;
++-----------+------------+----------+-------------+--------------+
+| Order_NUM | Order_Date | ITEM_NUM | NUM_ORDERED | QUOTED_PRICE |
++-----------+------------+----------+-------------+--------------+
+| 51608     | 2015-10-12 | CD33     |           5 |        86.99 |
+| 51610     | 2015-10-12 | KL78     |          25 |        10.95 |
+| 51610     | 2015-10-12 | TR40     |          10 |        13.99 |
+| 51613     | 2015-10-13 | DL51     |           5 |       104.95 |
+| 51614     | 2015-10-13 | FD11     |           1 |       124.95 |
+| 51617     | 2015-10-15 | NL89     |           4 |       115.99 |
+| 51617     | 2015-10-15 | TW35     |           3 |       116.95 |
+| 51619     | 2015-10-15 | FD11     |           2 |       121.95 |
+| 51623     | 2015-10-15 | DR67     |           5 |        29.95 |
+| 51623     | 2015-10-15 | FH24     |          12 |        36.95 |
+| 51623     | 2015-10-15 | KD34     |          10 |        13.10 |
+| 51625     | 2015-10-16 | MT03     |           8 |        45.79 |
++-----------+------------+----------+-------------+--------------+
+12 rows in set (0.00 sec)
+
+mysql> 
+mysql> #4. Use the IN operator to find the number and name of each customer that placed an order on October 15, 2015.
+mysql> 
+mysql> SELECT Customer.Customer_Num, Customer.Customer_Name FROM CUSTOMER, ORDERS WHERE CUSTOMER.CUSTOMER_NUM = ORDERS.CUSTOMER_NUM AND ORDERS.ORDER_DATE IN ('2015-10-15'); 
++--------------+-------------------------+
+| Customer_Num | Customer_Name           |
++--------------+-------------------------+
+| 586          | Almondton General Store |
+| 126          | Toys Galore             |
+| 586          | Almondton General Store |
++--------------+-------------------------+
+3 rows in set (0.00 sec)
+
+mysql> 
+mysql> #5. Repeat Exercise 4, but this time use the EXISTS operator in your answer.
+mysql> 
+mysql> SELECT CUSTOMER_NUM, CUSTOMER_NAME FROM CUSTOMER WHERE EXISTS (SELECT CUSTOMER_NAME  FROM CUSTOMER, ORDERS WHERE CUSTOMER.CUSTOMER_NUM = ORDERS.CUSTOMER_NUM AND ORDER_DATE = '2015-10-15');
++--------------+-------------------------------+
+| CUSTOMER_NUM | CUSTOMER_NAME                 |
++--------------+-------------------------------+
+| 126          | Toys Galore                   |
+| 260          | Brookings Direct              |
+| 334          | The Everything Shop           |
+| 386          | Johnson's Department Store    |
+| 440          | Grove Historical Museum Store |
+| 502          | Cards and More                |
+| 586          | Almondton General Store       |
+| 665          | Cricket Gift Shop             |
+| 713          | Cress Store                   |
+| 796          | Unique Gifts                  |
+| 824          | Kline's                       |
+| 893          | All Season Gifts              |
++--------------+-------------------------------+
+12 rows in set (0.00 sec)
+
+mysql> 
+mysql> #6. Find the number and name of each customer that did not place an order on October 15, 2015.
+mysql> 
+mysql> SELECT CUSTOMER.CUSTOMER_NUM, CUSTOMER.CUSTOMER_NAME FROM CUSTOMER, ORDERS WHERE CUSTOMER.CUSTOMER_NUM = ORDERS.CUSTOMER_NUM AND NOT ORDER_DATE = '2015-10-15';
++--------------+----------------------------+
+| CUSTOMER_NUM | CUSTOMER_NAME              |
++--------------+----------------------------+
+| 126          | Toys Galore                |
+| 334          | The Everything Shop        |
+| 386          | Johnson's Department Store |
+| 260          | Brookings Direct           |
+| 796          | Unique Gifts               |
++--------------+----------------------------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> #7. For each order, list the order number, order date, item number, description, and category for each item that makes up the order.
+mysql> 
+mysql> SELECT ORDERS.ORDER_NUM, ORDERS.ORDER_DATE, ORDER_LINE.ITEM_NUM, ITEM.DESCRIPTION, ITEM.CATEGORY FROM ORDERS, ITEM, ORDER_LINE WHERE ORDER_LINE.ORDER_NUM = ORDERS.ORDER_NUM AND ITEM.ITEM_NUM = ORDER_LINE.ITEM_NUM;
++-----------+------------+----------+---------------------------+----------+
+| ORDER_NUM | ORDER_DATE | ITEM_NUM | DESCRIPTION               | CATEGORY |
++-----------+------------+----------+---------------------------+----------+
+| 51608     | 2015-10-12 | CD33     | Wood Block Set (48 piece) | TOY      |
+| 51610     | 2015-10-12 | KL78     | Pick Up Sticks            | GME      |
+| 51610     | 2015-10-12 | TR40     | Tic Tac Toe               | GME      |
+| 51613     | 2015-10-13 | DL51     | Classic Railway Set       | TOY      |
+| 51614     | 2015-10-13 | FD11     | Rocking Horse             | TOY      |
+| 51617     | 2015-10-15 | NL89     | Wood Block Set (62 piece) | TOY      |
+| 51617     | 2015-10-15 | TW35     | Fire Engine               | TOY      |
+| 51619     | 2015-10-15 | FD11     | Rocking Horse             | TOY      |
+| 51623     | 2015-10-15 | DR67     | Giant Star Brain Teaser   | PZL      |
+| 51623     | 2015-10-15 | FH24     | Puzzle Gift Set           | PZL      |
+| 51623     | 2015-10-15 | KD34     | Pentominoes Brain Teaser  | PZL      |
+| 51625     | 2015-10-16 | MT03     | Zauberkasten Brain Teaser | PZL      |
++-----------+------------+----------+---------------------------+----------+
+12 rows in set (0.00 sec)
+
+mysql> 
+mysql> #8. Repeat Exercise 7, but this time order the rows by category and then by order number.
+mysql> 
+mysql> SELECT ORDERS.ORDER_NUM, ORDERS.ORDER_DATE, ORDER_LINE.ITEM_NUM, ITEM.DESCRIPTION, ITEM.CATEGORY FROM ORDERS, ITEM, ORDER_LINE WHERE ORDER_LINE.ORDER_NUM = ORDERS.ORDER_NUM AND ITEM.ITEM_NUM = ORDER_LINE.ITEM_NUM ORDER BY ITEM.CATEGORY ASC, ORDERS.ORDER_NUM DESC;
++-----------+------------+----------+---------------------------+----------+
+| ORDER_NUM | ORDER_DATE | ITEM_NUM | DESCRIPTION               | CATEGORY |
++-----------+------------+----------+---------------------------+----------+
+| 51610     | 2015-10-12 | KL78     | Pick Up Sticks            | GME      |
+| 51610     | 2015-10-12 | TR40     | Tic Tac Toe               | GME      |
+| 51625     | 2015-10-16 | MT03     | Zauberkasten Brain Teaser | PZL      |
+| 51623     | 2015-10-15 | DR67     | Giant Star Brain Teaser   | PZL      |
+| 51623     | 2015-10-15 | FH24     | Puzzle Gift Set           | PZL      |
+| 51623     | 2015-10-15 | KD34     | Pentominoes Brain Teaser  | PZL      |
+| 51619     | 2015-10-15 | FD11     | Rocking Horse             | TOY      |
+| 51617     | 2015-10-15 | NL89     | Wood Block Set (62 piece) | TOY      |
+| 51617     | 2015-10-15 | TW35     | Fire Engine               | TOY      |
+| 51614     | 2015-10-13 | FD11     | Rocking Horse             | TOY      |
+| 51613     | 2015-10-13 | DL51     | Classic Railway Set       | TOY      |
+| 51608     | 2015-10-12 | CD33     | Wood Block Set (48 piece) | TOY      |
++-----------+------------+----------+---------------------------+----------+
+12 rows in set (0.00 sec)
+
+mysql> 
+mysql> #9. Use a subquery to find the rep number, last name, and first name of each sales rep who represents at least one customer with a credit limit of $10,000. List each sales rep only once in the results.
+mysql> 
+mysql> SELECT REP.REP_NUM, REP.LAST_NAME, REP.FIRST_NAME FROM REP, CUSTOMER WHERE CUSTOMER.REP_NUM = REP.REP_NUM AND REP.REP_NUM = (SELECT CUSTOMER.REP_NUM FROM CUSTOMER WHERE CREDIT_LIMIT > 10000) GROUP BY REP.REP_NUM;
+ERROR 1242 (21000): Subquery returns more than 1 row
+mysql> 
+mysql> #10. Repeat Exercise 9, but this time do not use a subquery. 
+mysql> 
+mysql> SELECT REP.REP_NUM, REP.LAST_NAME, REP.FIRST_NAME FROM REP, CUSTOMER WHERE REP.REP_NUM = CUSTOMER.REP_NUM AND CUSTOMER.CREDIT_LIMIT = 10000 GROUP BY REP.REP_NUM;
++---------+-----------+------------+
+| REP_NUM | LAST_NAME | FIRST_NAME |
++---------+-----------+------------+
+| 30      | Gradey    | Megan      |
+| 15      | Campos    | Rafael     |
++---------+-----------+------------+
+2 rows in set (0.00 sec)
+
+mysql> 
+mysql> #11. Find the number and name of each customer that currently has an order on file for a Rocking Horse.
+mysql> 
+mysql> SELECT CUSTOMER.CUSTOMER_NUM, CUSTOMER.CUSTOMER_NAME FROM CUSTOMER, ORDERS,ORDER_LINE WHERE ORDERS.ORDER_NUM = ORDER_LINE.ORDER_NUM AND CUSTOMER.CUSTOMER_NUM = ORDERS.CUSTOMER_NUM AND ORDER_LINE.ITEM_NUM = 'FD11';
++--------------+------------------+
+| CUSTOMER_NUM | CUSTOMER_NAME    |
++--------------+------------------+
+| 260          | Brookings Direct |
+| 126          | Toys Galore      |
++--------------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> 
+mysql> #12. List the item number, description, and category for each pair of items that are in the same category.
+mysql> 
+mysql> SELECT ITEM_NUM, DESCRIPTION, CATEGORY FROM ITEM WHERE CATEGORY IN (SELECT CATEGORY FROM ITEM GROUP BY CATEGORY HAVING COUNT(CATEGORY) >1);
++----------+---------------------------+----------+
+| ITEM_NUM | DESCRIPTION               | CATEGORY |
++----------+---------------------------+----------+
+| AH74     | Patience                  | GME      |
+| BR23     | Skittles                  | GME      |
+| CD33     | Wood Block Set (48 piece) | TOY      |
+| DL51     | Classic Railway Set       | TOY      |
+| DR67     | Giant Star Brain Teaser   | PZL      |
+| DW23     | Mancala                   | GME      |
+| FD11     | Rocking Horse             | TOY      |
+| FH24     | Puzzle Gift Set           | PZL      |
+| KA12     | Cribbage Set              | GME      |
+| KD34     | Pentominoes Brain Teaser  | PZL      |
+| KL78     | Pick Up Sticks            | GME      |
+| MT03     | Zauberkasten Brain Teaser | PZL      |
+| NL89     | Wood Block Set (62 piece) | TOY      |
+| TR40     | Tic Tac Toe               | GME      |
+| TW35     | Fire Engine               | TOY      |
++----------+---------------------------+----------+
+15 rows in set (0.00 sec)
+
+mysql> 
+mysql> #13. List the order number and order date for each order placed by the customer named Johnson’s Department Store. 
+mysql> 
+mysql> SELECT ORDER_NUM, ORDER_DATE FROM ORDERS WHERE CUSTOMER_NUM = 386;
++-----------+------------+
+| ORDER_NUM | ORDER_DATE |
++-----------+------------+
+| 51613     | 2015-10-13 |
++-----------+------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> #14. List the order number and order date for each order that contains an order line for a Fire Engine.
+mysql> 
+mysql> SELECT ORDERS.ORDER_NUM, ORDERS.ORDER_DATE FROM ORDERS, ORDER_LINE WHERE ORDERS.ORDER_NUM = ORDER_LINE.ORDER_NUM AND ORDER_LINE.ITEM_NUM = 'TW35';
++-----------+------------+
+| ORDER_NUM | ORDER_DATE |
++-----------+------------+
+| 51617     | 2015-10-15 |
++-----------+------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> #15. List the order number and order date for each order that either was placed by Almondton General Store or that contains an order line for a Fire Engine.
+mysql> 
+mysql> SELECT ORDERS.ORDER_NUM, ORDERS.ORDER_DATE FROM ORDERS, ORDER_LINE WHERE ORDERS.ORDER_NUM = ORDER_LINE.ORDER_NUM AND (ORDER_LINE.ITEM_NUM = 'TW35' OR CUSTOMER_NUM = 586);
++-----------+------------+
+| ORDER_NUM | ORDER_DATE |
++-----------+------------+
+| 51617     | 2015-10-15 |
+| 51617     | 2015-10-15 |
+| 51623     | 2015-10-15 |
+| 51623     | 2015-10-15 |
+| 51623     | 2015-10-15 |
++-----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> #16. List the order number and order date for each order that was placed by Almondton General Store and that contains an order line for a Fire Engine.
+mysql> 
+mysql> SELECT ORDERS.ORDER_NUM, ORDERS.ORDER_DATE FROM ORDERS, ORDER_LINE WHERE ORDERS.ORDER_NUM = ORDER_LINE.ORDER_NUM AND ORDER_LINE.ITEM_NUM = 'TW35' AND CUSTOMER_NUM = 586;
++-----------+------------+
+| ORDER_NUM | ORDER_DATE |
++-----------+------------+
+| 51617     | 2015-10-15 |
++-----------+------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> #17. List the order number and order date for each order that was placed by Almondton General Store but that does not contain an order line for a Fire Engine.
+mysql> 
+mysql> SELECT ORDERS.ORDER_NUM, ORDERS.ORDER_DATE FROM ORDERS, ORDER_LINE WHERE ORDERS.ORDER_NUM = ORDER_LINE.ORDER_NUM AND CUSTOMER_NUM = 586 AND NOT ORDER_LINE.ITEM_NUM = 'TW35';
++-----------+------------+
+| ORDER_NUM | ORDER_DATE |
++-----------+------------+
+| 51617     | 2015-10-15 |
+| 51623     | 2015-10-15 |
+| 51623     | 2015-10-15 |
+| 51623     | 2015-10-15 |
++-----------+------------+
+4 rows in set (0.00 sec)
+
+mysql> 
+mysql> #18. List the item number, description, unit price, and category for each item that has a unit price greater than the unit price of every item in category GME. Use either the ALL or ANY operator in your query. (Hint: Make sure you select the correct operator.)
+mysql> 
+mysql> SELECT ITEM_NUM, DESCRIPTION, PRICE, CATEGORY FROM ITEM WHERE PRICE > ALL (SELECT PRICE FROM ITEM WHERE CATEGORY = 'GME');
++----------+---------------------------+--------+----------+
+| ITEM_NUM | DESCRIPTION               | PRICE  | CATEGORY |
++----------+---------------------------+--------+----------+
+| CD33     | Wood Block Set (48 piece) |  89.49 | TOY      |
+| DL51     | Classic Railway Set       | 107.95 | TOY      |
+| FD11     | Rocking Horse             | 124.95 | TOY      |
+| NL89     | Wood Block Set (62 piece) | 119.75 | TOY      |
+| TW35     | Fire Engine               | 118.95 | TOY      |
++----------+---------------------------+--------+----------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> #19. For each item, list the item number, description, units on hand, order number, and number of units ordered. All items should be included in the results. For those items that are currently not on order, the order number and number of units ordered should be left blank. Order the results by item number.
+mysql> 
+mysql> SELECT ITEM.ITEM_NUM, ITEM.DESCRIPTION, ITEM.ON_HAND, ORDER_LINE.ORDER_NUM, ORDER_LINE.NUM_ORDERED FROM ITEM, ORDER_LINE WHERE ORDER_LINE.ITEM_NUM = ITEM.ITEM_NUM;
++----------+---------------------------+---------+-----------+-------------+
+| ITEM_NUM | DESCRIPTION               | ON_HAND | ORDER_NUM | NUM_ORDERED |
++----------+---------------------------+---------+-----------+-------------+
+| CD33     | Wood Block Set (48 piece) |      36 | 51608     |           5 |
+| KL78     | Pick Up Sticks            |     110 | 51610     |          25 |
+| TR40     | Tic Tac Toe               |      75 | 51610     |          10 |
+| DL51     | Classic Railway Set       |      12 | 51613     |           5 |
+| FD11     | Rocking Horse             |       8 | 51614     |           1 |
+| NL89     | Wood Block Set (62 piece) |      32 | 51617     |           4 |
+| TW35     | Fire Engine               |      30 | 51617     |           3 |
+| FD11     | Rocking Horse             |       8 | 51619     |           2 |
+| DR67     | Giant Star Brain Teaser   |      24 | 51623     |           5 |
+| FH24     | Puzzle Gift Set           |      65 | 51623     |          12 |
+| KD34     | Pentominoes Brain Teaser  |      60 | 51623     |          10 |
+| MT03     | Zauberkasten Brain Teaser |      45 | 51625     |           8 |
++----------+---------------------------+---------+-----------+-------------+
+12 rows in set (0.00 sec)
+
+mysql> 
+mysql> #20. Critical Thinking If you used ALL in Exercise 18, repeat the exercise using ANY. If you used ANY, repeat the exercise using ALL, and then run the new command. What question does the new command answer?
+mysql> 
+mysql> SELECT ITEM_NUM, DESCRIPTION, PRICE, CATEGORY FROM ITEM WHERE PRICE > ANY (SELECT PRICE FROM ITEM WHERE CATEGORY = 'GME');
++----------+---------------------------+--------+----------+
+| ITEM_NUM | DESCRIPTION               | PRICE  | CATEGORY |
++----------+---------------------------+--------+----------+
+| AH74     | Patience                  |  22.99 | GME      |
+| BR23     | Skittles                  |  29.99 | GME      |
+| CD33     | Wood Block Set (48 piece) |  89.49 | TOY      |
+| DL51     | Classic Railway Set       | 107.95 | TOY      |
+| DR67     | Giant Star Brain Teaser   |  31.95 | PZL      |
+| DW23     | Mancala                   |  50.00 | GME      |
+| FD11     | Rocking Horse             | 124.95 | TOY      |
+| FH24     | Puzzle Gift Set           |  38.95 | PZL      |
+| KA12     | Cribbage Set              |  75.00 | GME      |
+| KD34     | Pentominoes Brain Teaser  |  14.95 | PZL      |
+| MT03     | Zauberkasten Brain Teaser |  45.79 | PZL      |
+| NL89     | Wood Block Set (62 piece) | 119.75 | TOY      |
+| TR40     | Tic Tac Toe               |  13.99 | GME      |
+| TW35     | Fire Engine               | 118.95 | TOY      |
++----------+---------------------------+--------+----------+
+14 rows in set (0.00 sec)
+
+mysql> 
+mysql> #21. Critical Thinking For each rep, list the customer number, customer name, rep last name, and rep first name. All reps should be included in the results. Order the results by rep number. There are two SQL commands for this query that will list the same results. Create and run each SQL command.
+mysql> 
+mysql> SELECT CUSTOMER.CUSTOMER_NUM, CUSTOMER.CUSTOMER_NAME, REP.LAST_NAME, REP.FIRST_NAME FROM CUSTOMER, REP WHERE CUSTOMER.REP_NUM = REP.REP_NUM;
++--------------+-------------------------------+-----------+------------+
+| CUSTOMER_NUM | CUSTOMER_NAME                 | LAST_NAME | FIRST_NAME |
++--------------+-------------------------------+-----------+------------+
+| 126          | Toys Galore                   | Campos    | Rafael     |
+| 260          | Brookings Direct              | Gradey    | Megan      |
+| 334          | The Everything Shop           | Tian      | Hui        |
+| 386          | Johnson's Department Store    | Gradey    | Megan      |
+| 440          | Grove Historical Museum Store | Tian      | Hui        |
+| 502          | Cards and More                | Campos    | Rafael     |
+| 586          | Almondton General Store       | Tian      | Hui        |
+| 665          | Cricket Gift Shop             | Gradey    | Megan      |
+| 713          | Cress Store                   | Campos    | Rafael     |
+| 796          | Unique Gifts                  | Tian      | Hui        |
+| 824          | Kline's                       | Gradey    | Megan      |
+| 893          | All Season Gifts              | Campos    | Rafael     |
++--------------+-------------------------------+-----------+------------+
+12 rows in set (0.00 sec)
+
+mysql> 
+mysql> notee

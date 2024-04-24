@@ -1,0 +1,639 @@
+mysql> 
+mysql> # Taylor Shipley
+mysql> # Assignment #8: Multiple-Table Queries -- COLONIAL Adventure Tours Database
+mysql> 
+mysql> #1. For each reservation, list the reservation ID, trip ID, customer number, and customer last name. Order the results by customer last name.
+mysql> 
+mysql> SELECT RESERVATION.RESERVATION_ID, RESERVATION.TRIP_ID, RESERVATION.CUSTOMER_NUM, CUSTOMER.LAST_NAME FROM RESERVATION, CUSTOMER WHERE RESERVATION.CUSTOMER_NUM = CUSTOMER.CUSTOMER_NUM ORDER BY CUSTOMER.LAST_NAME;
++----------------+---------+--------------+---------------+
+| RESERVATION_ID | TRIP_ID | CUSTOMER_NUM | LAST_NAME     |
++----------------+---------+--------------+---------------+
+| 1600016        | 11      | 121          | Bretton-Borak |
+| 1600024        | 38      | 121          | Bretton-Borak |
+| 1600018        | 38      | 126          | Brown         |
+| 1600026        | 12      | 126          | Brown         |
+| 1600019        | 25      | 124          | Busa          |
+| 1600020        | 28      | 124          | Busa          |
+| 1600009        | 38      | 109          | Caron         |
+| 1600014        | 12      | 119          | Chau          |
+| 1600022        | 21      | 119          | Chau          |
+| 1600015        | 10      | 120          | Gernowski     |
+| 1600029        | 4       | 120          | Gernowski     |
+| 1600004        | 26      | 104          | Goff          |
+| 1600030        | 15      | 104          | Goff          |
+| 1600017        | 39      | 122          | Hefferson     |
+| 1600021        | 32      | 112          | Jones         |
+| 1600003        | 28      | 103          | Kasuma        |
+| 1600007        | 22      | 107          | Marchand      |
+| 1600005        | 39      | 105          | McLean        |
+| 1600006        | 32      | 106          | Morontoia     |
+| 1600013        | 8       | 116          | Murakami      |
+| 1600001        | 40      | 101          | Northfold     |
+| 1600002        | 21      | 101          | Northfold     |
+| 1600010        | 2       | 102          | Ocean         |
+| 1600011        | 3       | 102          | Ocean         |
+| 1600025        | 38      | 125          | Peterson      |
+| 1600008        | 28      | 108          | Rulf          |
+| 1600012        | 1       | 115          | Vaccari       |
++----------------+---------+--------------+---------------+
+27 rows in set (0.00 sec)
+
+mysql> 
+mysql> #2. For each reservation for customer Ryan Goff, list the reservation ID, trip ID, and number of persons.
+mysql> 
+mysql> SELECT RESERVATION.RESERVATION_ID, RESERVATION.TRIP_ID, RESERVATION.NUM_PERSONS FROM RESERVATION, CUSTOMER WHERE RESERVATION.CUSTOMER_NUM = CUSTOMER.CUSTOMER_NUM AND CUSTOMER.LAST_NAME = 'GOFF' AND CUSTOMER.FIRST_NAME = 'RYAN';
++----------------+---------+-------------+
+| RESERVATION_ID | TRIP_ID | NUM_PERSONS |
++----------------+---------+-------------+
+| 1600004        | 26      | 4           |
+| 1600030        | 15      | 6           |
++----------------+---------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> 
+mysql> #3. List the trip name of each trip that has Miles Abrams as a guide.
+mysql> 
+mysql> SELECT TRIP.TRIP_NAME FROM TRIP, TRIP_GUIDES, GUIDE WHERE TRIP.TRIP_ID = TRIP_GUIDES.TRIP_ID AND TRIP_GUIDES.GUIDE_NUM = GUIDE.GUIDE_NUM AND GUIDE.LAST_NAME = 'ABRAMS' AND GUIDE.FIRST_NAME = 'MILES';
++---------------------------+
+| TRIP_NAME                 |
++---------------------------+
+| Mt Ascutney - North Peak  |
+| Long Pond                 |
+| McLennan Reservation Hike |
++---------------------------+
+3 rows in set (0.00 sec)
+
+mysql> 
+mysql> #4. List the trip name of each trip that has the type Biking and that has Rita Boyers as a guide.
+mysql> 
+mysql> SELECT TRIP.TRIP_NAME FROM TRIP, TRIP_GUIDES, GUIDE WHERE TRIP.TRIP_ID = TRIP_GUIDES.TRIP_ID AND TRIP_GUIDES.GUIDE_NUM = GUIDE.GUIDE_NUM AND GUIDE.LAST_NAME = 'BOYERS' AND GUIDE.FIRST_NAME = 'RITA' AND TRIP.TYPE = 'HIKING';
++---------------------------------+
+| TRIP_NAME                       |
++---------------------------------+
+| Mt Adams                        |
+| Mount Garfield Hike             |
+| Welch and Dickey Mountains Hike |
+| Black Pond                      |
+| Big Rock Cave                   |
++---------------------------------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> #5. For each reservation that has a trip date of July 23, 2016, list the customer’s last name, the trip name, and the start location.
+mysql> 
+mysql> SELECT CUSTOMER.LAST_NAME, TRIP.TRIP_NAME, TRIP.START_LOCATION FROM CUSTOMER, TRIP, RESERVATION WHERE CUSTOMER.CUSTOMER_NUM = RESERVATION.RESERVATION_ID AND RESERVATION.TRIP_ID = TRIP.TRIP_ID;
+Empty set (0.00 sec)
+
+mysql> 
+mysql> #6. List the reservation ID, trip ID, and trip date for reservations for a trip in Maine (ME).
+mysql> 
+mysql> SELECT RESERVATION.RESERVATION_ID, TRIP.TRIP_ID, RESERVATION.TRIP_DATE FROM RESERVATION, TRIP WHERE RESERVATION.TRIP_ID = TRIP.TRIP_ID AND TRIP.STATE = 'ME';
++----------------+---------+------------+
+| RESERVATION_ID | TRIP_ID | TRIP_DATE  |
++----------------+---------+------------+
+| 1600007        | 22      | 2016-07-09 |
+| 1600014        | 12      | 2016-10-01 |
+| 1600019        | 25      | 2016-08-29 |
+| 1600026        | 12      | 2016-10-01 |
+| 1600029        | 4       | 2016-09-19 |
++----------------+---------+------------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> #7. Repeat Exercise 6, but this time use the EXISTS operator in your query.
+mysql> 
+mysql> SELECT RESERVATION.RESERVATION_ID, TRIP.TRIP_ID, RESERVATION.TRIP_DATE FROM RESERVATION, TRIP WHERE EXISTS (SELECT SEASON FROM TRIP WHERE RESERVATION.TRIP_ID = TRIP.TRIP_ID AND TRIP.STATE = 'ME');
++----------------+---------+------------+
+| RESERVATION_ID | TRIP_ID | TRIP_DATE  |
++----------------+---------+------------+
+| 1600007        | 1       | 2016-07-09 |
+| 1600014        | 1       | 2016-10-01 |
+| 1600019        | 1       | 2016-08-29 |
+| 1600026        | 1       | 2016-10-01 |
+| 1600029        | 1       | 2016-09-19 |
+| 1600007        | 10      | 2016-07-09 |
+| 1600014        | 10      | 2016-10-01 |
+| 1600019        | 10      | 2016-08-29 |
+| 1600026        | 10      | 2016-10-01 |
+| 1600029        | 10      | 2016-09-19 |
+| 1600007        | 11      | 2016-07-09 |
+| 1600014        | 11      | 2016-10-01 |
+| 1600019        | 11      | 2016-08-29 |
+| 1600026        | 11      | 2016-10-01 |
+| 1600029        | 11      | 2016-09-19 |
+| 1600007        | 12      | 2016-07-09 |
+| 1600014        | 12      | 2016-10-01 |
+| 1600019        | 12      | 2016-08-29 |
+| 1600026        | 12      | 2016-10-01 |
+| 1600029        | 12      | 2016-09-19 |
+| 1600007        | 13      | 2016-07-09 |
+| 1600014        | 13      | 2016-10-01 |
+| 1600019        | 13      | 2016-08-29 |
+| 1600026        | 13      | 2016-10-01 |
+| 1600029        | 13      | 2016-09-19 |
+| 1600007        | 14      | 2016-07-09 |
+| 1600014        | 14      | 2016-10-01 |
+| 1600019        | 14      | 2016-08-29 |
+| 1600026        | 14      | 2016-10-01 |
+| 1600029        | 14      | 2016-09-19 |
+| 1600007        | 15      | 2016-07-09 |
+| 1600014        | 15      | 2016-10-01 |
+| 1600019        | 15      | 2016-08-29 |
+| 1600026        | 15      | 2016-10-01 |
+| 1600029        | 15      | 2016-09-19 |
+| 1600007        | 16      | 2016-07-09 |
+| 1600014        | 16      | 2016-10-01 |
+| 1600019        | 16      | 2016-08-29 |
+| 1600026        | 16      | 2016-10-01 |
+| 1600029        | 16      | 2016-09-19 |
+| 1600007        | 17      | 2016-07-09 |
+| 1600014        | 17      | 2016-10-01 |
+| 1600019        | 17      | 2016-08-29 |
+| 1600026        | 17      | 2016-10-01 |
+| 1600029        | 17      | 2016-09-19 |
+| 1600007        | 18      | 2016-07-09 |
+| 1600014        | 18      | 2016-10-01 |
+| 1600019        | 18      | 2016-08-29 |
+| 1600026        | 18      | 2016-10-01 |
+| 1600029        | 18      | 2016-09-19 |
+| 1600007        | 19      | 2016-07-09 |
+| 1600014        | 19      | 2016-10-01 |
+| 1600019        | 19      | 2016-08-29 |
+| 1600026        | 19      | 2016-10-01 |
+| 1600029        | 19      | 2016-09-19 |
+| 1600007        | 2       | 2016-07-09 |
+| 1600014        | 2       | 2016-10-01 |
+| 1600019        | 2       | 2016-08-29 |
+| 1600026        | 2       | 2016-10-01 |
+| 1600029        | 2       | 2016-09-19 |
+| 1600007        | 20      | 2016-07-09 |
+| 1600014        | 20      | 2016-10-01 |
+| 1600019        | 20      | 2016-08-29 |
+| 1600026        | 20      | 2016-10-01 |
+| 1600029        | 20      | 2016-09-19 |
+| 1600007        | 21      | 2016-07-09 |
+| 1600014        | 21      | 2016-10-01 |
+| 1600019        | 21      | 2016-08-29 |
+| 1600026        | 21      | 2016-10-01 |
+| 1600029        | 21      | 2016-09-19 |
+| 1600007        | 22      | 2016-07-09 |
+| 1600014        | 22      | 2016-10-01 |
+| 1600019        | 22      | 2016-08-29 |
+| 1600026        | 22      | 2016-10-01 |
+| 1600029        | 22      | 2016-09-19 |
+| 1600007        | 23      | 2016-07-09 |
+| 1600014        | 23      | 2016-10-01 |
+| 1600019        | 23      | 2016-08-29 |
+| 1600026        | 23      | 2016-10-01 |
+| 1600029        | 23      | 2016-09-19 |
+| 1600007        | 24      | 2016-07-09 |
+| 1600014        | 24      | 2016-10-01 |
+| 1600019        | 24      | 2016-08-29 |
+| 1600026        | 24      | 2016-10-01 |
+| 1600029        | 24      | 2016-09-19 |
+| 1600007        | 25      | 2016-07-09 |
+| 1600014        | 25      | 2016-10-01 |
+| 1600019        | 25      | 2016-08-29 |
+| 1600026        | 25      | 2016-10-01 |
+| 1600029        | 25      | 2016-09-19 |
+| 1600007        | 26      | 2016-07-09 |
+| 1600014        | 26      | 2016-10-01 |
+| 1600019        | 26      | 2016-08-29 |
+| 1600026        | 26      | 2016-10-01 |
+| 1600029        | 26      | 2016-09-19 |
+| 1600007        | 27      | 2016-07-09 |
+| 1600014        | 27      | 2016-10-01 |
+| 1600019        | 27      | 2016-08-29 |
+| 1600026        | 27      | 2016-10-01 |
+| 1600029        | 27      | 2016-09-19 |
+| 1600007        | 28      | 2016-07-09 |
+| 1600014        | 28      | 2016-10-01 |
+| 1600019        | 28      | 2016-08-29 |
+| 1600026        | 28      | 2016-10-01 |
+| 1600029        | 28      | 2016-09-19 |
+| 1600007        | 29      | 2016-07-09 |
+| 1600014        | 29      | 2016-10-01 |
+| 1600019        | 29      | 2016-08-29 |
+| 1600026        | 29      | 2016-10-01 |
+| 1600029        | 29      | 2016-09-19 |
+| 1600007        | 3       | 2016-07-09 |
+| 1600014        | 3       | 2016-10-01 |
+| 1600019        | 3       | 2016-08-29 |
+| 1600026        | 3       | 2016-10-01 |
+| 1600029        | 3       | 2016-09-19 |
+| 1600007        | 30      | 2016-07-09 |
+| 1600014        | 30      | 2016-10-01 |
+| 1600019        | 30      | 2016-08-29 |
+| 1600026        | 30      | 2016-10-01 |
+| 1600029        | 30      | 2016-09-19 |
+| 1600007        | 31      | 2016-07-09 |
+| 1600014        | 31      | 2016-10-01 |
+| 1600019        | 31      | 2016-08-29 |
+| 1600026        | 31      | 2016-10-01 |
+| 1600029        | 31      | 2016-09-19 |
+| 1600007        | 32      | 2016-07-09 |
+| 1600014        | 32      | 2016-10-01 |
+| 1600019        | 32      | 2016-08-29 |
+| 1600026        | 32      | 2016-10-01 |
+| 1600029        | 32      | 2016-09-19 |
+| 1600007        | 33      | 2016-07-09 |
+| 1600014        | 33      | 2016-10-01 |
+| 1600019        | 33      | 2016-08-29 |
+| 1600026        | 33      | 2016-10-01 |
+| 1600029        | 33      | 2016-09-19 |
+| 1600007        | 34      | 2016-07-09 |
+| 1600014        | 34      | 2016-10-01 |
+| 1600019        | 34      | 2016-08-29 |
+| 1600026        | 34      | 2016-10-01 |
+| 1600029        | 34      | 2016-09-19 |
+| 1600007        | 35      | 2016-07-09 |
+| 1600014        | 35      | 2016-10-01 |
+| 1600019        | 35      | 2016-08-29 |
+| 1600026        | 35      | 2016-10-01 |
+| 1600029        | 35      | 2016-09-19 |
+| 1600007        | 36      | 2016-07-09 |
+| 1600014        | 36      | 2016-10-01 |
+| 1600019        | 36      | 2016-08-29 |
+| 1600026        | 36      | 2016-10-01 |
+| 1600029        | 36      | 2016-09-19 |
+| 1600007        | 37      | 2016-07-09 |
+| 1600014        | 37      | 2016-10-01 |
+| 1600019        | 37      | 2016-08-29 |
+| 1600026        | 37      | 2016-10-01 |
+| 1600029        | 37      | 2016-09-19 |
+| 1600007        | 38      | 2016-07-09 |
+| 1600014        | 38      | 2016-10-01 |
+| 1600019        | 38      | 2016-08-29 |
+| 1600026        | 38      | 2016-10-01 |
+| 1600029        | 38      | 2016-09-19 |
+| 1600007        | 39      | 2016-07-09 |
+| 1600014        | 39      | 2016-10-01 |
+| 1600019        | 39      | 2016-08-29 |
+| 1600026        | 39      | 2016-10-01 |
+| 1600029        | 39      | 2016-09-19 |
+| 1600007        | 4       | 2016-07-09 |
+| 1600014        | 4       | 2016-10-01 |
+| 1600019        | 4       | 2016-08-29 |
+| 1600026        | 4       | 2016-10-01 |
+| 1600029        | 4       | 2016-09-19 |
+| 1600007        | 40      | 2016-07-09 |
+| 1600014        | 40      | 2016-10-01 |
+| 1600019        | 40      | 2016-08-29 |
+| 1600026        | 40      | 2016-10-01 |
+| 1600029        | 40      | 2016-09-19 |
+| 1600007        | 41      | 2016-07-09 |
+| 1600014        | 41      | 2016-10-01 |
+| 1600019        | 41      | 2016-08-29 |
+| 1600026        | 41      | 2016-10-01 |
+| 1600029        | 41      | 2016-09-19 |
+| 1600007        | 5       | 2016-07-09 |
+| 1600014        | 5       | 2016-10-01 |
+| 1600019        | 5       | 2016-08-29 |
+| 1600026        | 5       | 2016-10-01 |
+| 1600029        | 5       | 2016-09-19 |
+| 1600007        | 6       | 2016-07-09 |
+| 1600014        | 6       | 2016-10-01 |
+| 1600019        | 6       | 2016-08-29 |
+| 1600026        | 6       | 2016-10-01 |
+| 1600029        | 6       | 2016-09-19 |
+| 1600007        | 7       | 2016-07-09 |
+| 1600014        | 7       | 2016-10-01 |
+| 1600019        | 7       | 2016-08-29 |
+| 1600026        | 7       | 2016-10-01 |
+| 1600029        | 7       | 2016-09-19 |
+| 1600007        | 8       | 2016-07-09 |
+| 1600014        | 8       | 2016-10-01 |
+| 1600019        | 8       | 2016-08-29 |
+| 1600026        | 8       | 2016-10-01 |
+| 1600029        | 8       | 2016-09-19 |
+| 1600007        | 9       | 2016-07-09 |
+| 1600014        | 9       | 2016-10-01 |
+| 1600019        | 9       | 2016-08-29 |
+| 1600026        | 9       | 2016-10-01 |
+| 1600029        | 9       | 2016-09-19 |
++----------------+---------+------------+
+205 rows in set (0.00 sec)
+
+mysql> 
+mysql> #8. Find the guide last name and guide first name of all guides who can lead a paddling trip. (Note: The query results should include duplicate values.)
+mysql> 
+mysql> SELECT LAST_NAME, FIRST_NAME FROM GUIDE, TRIP_GUIDES, TRIP WHERE GUIDE.GUIDE_NUM = TRIP_GUIDES.GUIDE_NUM AND TRIP_GUIDES.TRIP_ID = TRIP.TRIP_ID AND TRIP.TYPE = 'PADDLING';
++-----------+------------+
+| LAST_NAME | FIRST_NAME |
++-----------+------------+
+| Devon     | Harley     |
+| Kiley     | Susan      |
+| Unser     | Glory      |
+| Devon     | Harley     |
+| Stevens   | Lori       |
+| Unser     | Glory      |
+| Devon     | Harley     |
+| Stevens   | Lori       |
+| Stevens   | Lori       |
+| Kiley     | Susan      |
+| Kiley     | Susan      |
+| Stevens   | Lori       |
++-----------+------------+
+12 rows in set (0.00 sec)
+
+mysql> 
+mysql> #9. Repeat Exercise 8 but use aliases for the table names.
+mysql> 
+mysql> SELECT GUIDE.FIRST_NAME AS GUIDE_FIRST_NAME, GUIDE.LAST_NAME AS GUIDE_LAST_NAME FROM GUIDE, TRIP_GUIDES, TRIP WHERE GUIDE.GUIDE_NUM = TRIP_GUIDES.GUIDE_NUM AND TRIP_GUIDES.TRIP_ID = TRIP.TRIP_ID AND TRIP.TYPE = 'PADDLING';
++------------------+-----------------+
+| GUIDE_FIRST_NAME | GUIDE_LAST_NAME |
++------------------+-----------------+
+| Harley           | Devon           |
+| Susan            | Kiley           |
+| Glory            | Unser           |
+| Harley           | Devon           |
+| Lori             | Stevens         |
+| Glory            | Unser           |
+| Harley           | Devon           |
+| Lori             | Stevens         |
+| Lori             | Stevens         |
+| Susan            | Kiley           |
+| Susan            | Kiley           |
+| Lori             | Stevens         |
++------------------+-----------------+
+12 rows in set (0.00 sec)
+
+mysql> 
+mysql> #10. List the trip IDs and trip names for each pair of trips that have the same start location. (For example, one such pair would be trip ID 2 and trip ID 3, because the start location of both trips is Weathersfield.) The first trip ID listed should be the major sort key, and the second trip ID should be the minor sort key.
+mysql> 
+mysql> SELECT TRIP_ID, TRIP_NAME FROM TRIP WHERE EXISTS (SELECT START_LOCATION FROM TRIP GROUP BY START_LOCATION HAVING COUNT(START_LOCATION) > 2) ORDER BY START_LOCATION;
++---------+----------------------------------+
+| TRIP_ID | TRIP_NAME                        |
++---------+----------------------------------+
+| 27      | Mt. Chocorua                     |
+| 37      | Seal Beach Harbor                |
+| 12      | Cadillac Mountain Ride           |
+| 13      | Cadillac Mountain                |
+| 17      | Huguenot Head Hike               |
+| 6       | Blueberry Mountain               |
+| 7       | Bloomfield - Maidstone           |
+| 25      | Mount Battie Ride                |
+| 26      | Mount Cardigan Hike              |
+| 15      | Crawford Path Presidentials Hike |
+| 34      | Pontook Reservoir Tour           |
+| 41      | Westfield River Loop             |
+| 14      | Cannon Mtn                       |
+| 22      | Long Pond Tour                   |
+| 1       | Arethusa Falls                   |
+| 4       | Bradbury Mountain Ride           |
+| 8       | Black Pond                       |
+| 31      | Missisquoi River - VT            |
+| 38      | Sawyer River Ride                |
+| 33      | Park Loop Ride                   |
+| 20      | Lake Mephremagog Tour            |
+| 5       | Baldpate Mountain                |
+| 19      | Mason's Farm                     |
+| 35      | Pisgah STATE Park Ride           |
+| 10      | Mt. Cardigan - Firescrew         |
+| 29      | Metacomet-Monadnock Trail Hike   |
+| 18      | Low Bald Spot Hike               |
+| 23      | Lower Pond Tour                  |
+| 40      | Wachusett Mountain               |
+| 24      | Mt Adams                         |
+| 21      | Long Pond                        |
+| 32      | Northern Forest Canoe Trail      |
+| 9       | Big Rock Cave                    |
+| 11      | Chocorua Lake Tour               |
+| 39      | Welch and Dickey Mountains Hike  |
+| 30      | McLennan Reservation Hike        |
+| 3       | Mt Ascutney - West Peak          |
+| 2       | Mt Ascutney - North Peak         |
+| 36      | Pondicherry Trail Ride           |
+| 16      | Cherry Pond                      |
+| 28      | Mount Garfield Hike              |
++---------+----------------------------------+
+41 rows in set (0.00 sec)
+
+mysql> 
+mysql> #11. Find the trip name of all reservations for hiking trips and sort the results by trip name in ascending order.
+mysql> 
+mysql> SELECT TRIP_NAME FROM TRIP WHERE TYPE = 'HIKING' ORDER BY TRIP_NAME ASC;
++----------------------------------+
+| TRIP_NAME                        |
++----------------------------------+
+| Arethusa Falls                   |
+| Baldpate Mountain                |
+| Big Rock Cave                    |
+| Black Pond                       |
+| Blueberry Mountain               |
+| Cadillac Mountain                |
+| Cannon Mtn                       |
+| Cherry Pond                      |
+| Crawford Path Presidentials Hike |
+| Huguenot Head Hike               |
+| Long Pond                        |
+| Low Bald Spot Hike               |
+| McLennan Reservation Hike        |
+| Metacomet-Monadnock Trail Hike   |
+| Mount Cardigan Hike              |
+| Mount Garfield Hike              |
+| Mt Adams                         |
+| Mt Ascutney - North Peak         |
+| Mt Ascutney - West Peak          |
+| Mt. Cardigan - Firescrew         |
+| Mt. Chocorua                     |
+| Seal Beach Harbor                |
+| Wachusett Mountain               |
+| Welch and Dickey Mountains Hike  |
++----------------------------------+
+24 rows in set (0.00 sec)
+
+mysql> 
+mysql> #12. List the number and name of each customer that either lives in the state of New Jersey (NJ), or that currently has a reservation, or both.
+mysql> 
+mysql> SELECT CUSTOMER.CUSTOMER_NUM, CUSTOMER.LAST_NAME, CUSTOMER.FIRST_NAME FROM CUSTOMER, RESERVATION WHERE CUSTOMER.STATE = 'NJ' OR CUSTOMER.CUSTOMER_NUM = RESERVATION.CUSTOMER_NUM OR (CUSTOMER.STATE = 'NJ' AND CUSTOMER.CUSTOMER_NUM = RESERVATION.CUSTOMER_NUM);
++--------------+---------------+------------+
+| CUSTOMER_NUM | LAST_NAME     | FIRST_NAME |
++--------------+---------------+------------+
+| 101          | Northfold     | Liam       |
+| 115          | Vaccari       | Adam       |
+| 101          | Northfold     | Liam       |
+| 115          | Vaccari       | Adam       |
+| 103          | Kasuma        | Sujata     |
+| 115          | Vaccari       | Adam       |
+| 104          | Goff          | Ryan       |
+| 115          | Vaccari       | Adam       |
+| 105          | McLean        | Kyle       |
+| 115          | Vaccari       | Adam       |
+| 106          | Morontoia     | Joseph     |
+| 115          | Vaccari       | Adam       |
+| 107          | Marchand      | Quinn      |
+| 115          | Vaccari       | Adam       |
+| 108          | Rulf          | Uschi      |
+| 115          | Vaccari       | Adam       |
+| 109          | Caron         | Jean Luc   |
+| 115          | Vaccari       | Adam       |
+| 102          | Ocean         | Arnold     |
+| 115          | Vaccari       | Adam       |
+| 102          | Ocean         | Arnold     |
+| 115          | Vaccari       | Adam       |
+| 115          | Vaccari       | Adam       |
+| 115          | Vaccari       | Adam       |
+| 116          | Murakami      | Iris       |
+| 115          | Vaccari       | Adam       |
+| 119          | Chau          | Clement    |
+| 115          | Vaccari       | Adam       |
+| 120          | Gernowski     | Sadie      |
+| 115          | Vaccari       | Adam       |
+| 121          | Bretton-Borak | Siam       |
+| 115          | Vaccari       | Adam       |
+| 122          | Hefferson     | Orlagh     |
+| 115          | Vaccari       | Adam       |
+| 126          | Brown         | Brianne    |
+| 115          | Vaccari       | Adam       |
+| 124          | Busa          | Karen      |
+| 115          | Vaccari       | Adam       |
+| 124          | Busa          | Karen      |
+| 112          | Jones         | Laura      |
+| 115          | Vaccari       | Adam       |
+| 115          | Vaccari       | Adam       |
+| 119          | Chau          | Clement    |
+| 115          | Vaccari       | Adam       |
+| 121          | Bretton-Borak | Siam       |
+| 115          | Vaccari       | Adam       |
+| 125          | Peterson      | Becca      |
+| 115          | Vaccari       | Adam       |
+| 126          | Brown         | Brianne    |
+| 115          | Vaccari       | Adam       |
+| 120          | Gernowski     | Sadie      |
+| 104          | Goff          | Ryan       |
+| 115          | Vaccari       | Adam       |
++--------------+---------------+------------+
+53 rows in set (0.00 sec)
+
+mysql> 
+mysql> #13. List the number and name of each customer that lives in the state of New Jersey (NJ) and that currently has a reservation.
+mysql> 
+mysql> SELECT CUSTOMER.CUSTOMER_NUM, CUSTOMER.LAST_NAME, CUSTOMER.FIRST_NAME FROM CUSTOMER, RESERVATION WHERE CUSTOMER.STATE = 'NJ' AND CUSTOMER.CUSTOMER_NUM = RESERVATION.CUSTOMER_NUM;
++--------------+-----------+------------+
+| CUSTOMER_NUM | LAST_NAME | FIRST_NAME |
++--------------+-----------+------------+
+| 115          | Vaccari   | Adam       |
++--------------+-----------+------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> #14. Find the trip ID and trip name for each trip whose maximum group size is greater than the maximum group size of every trip that has the type Hiking.
+mysql> 
+mysql> SELECT TRIP_ID, TRIP_NAME FROM TRIP WHERE MAX_GRP_SIZE > ALL (SELECT MAX_GRP_SIZE FROM TRIP WHERE TYPE = 'HIKING');
+Empty set (0.00 sec)
+
+mysql> 
+mysql> #15. Find the trip ID and trip name for each trip whose maximum group size is greater than the maximum group size of at least one trip that has the type Biking.
+mysql> 
+mysql> SELECT TRIP_ID, TRIP_NAME FROM TRIP WHERE MAX_GRP_SIZE > ANY (SELECT MAX_GRP_SIZE FROM TRIP WHERE TYPE = 'BIKING');
++---------+----------------------------------+
+| TRIP_ID | TRIP_NAME                        |
++---------+----------------------------------+
+| 10      | Mt. Cardigan - Firescrew         |
+| 11      | Chocorua Lake Tour               |
+| 12      | Cadillac Mountain Ride           |
+| 13      | Cadillac Mountain                |
+| 14      | Cannon Mtn                       |
+| 15      | Crawford Path Presidentials Hike |
+| 16      | Cherry Pond                      |
+| 18      | Low Bald Spot Hike               |
+| 19      | Mason's Farm                     |
+| 2       | Mt Ascutney - North Peak         |
+| 20      | Lake Mephremagog Tour            |
+| 21      | Long Pond                        |
+| 23      | Lower Pond Tour                  |
+| 24      | Mt Adams                         |
+| 25      | Mount Battie Ride                |
+| 26      | Mount Cardigan Hike              |
+| 29      | Metacomet-Monadnock Trail Hike   |
+| 30      | McLennan Reservation Hike        |
+| 33      | Park Loop Ride                   |
+| 34      | Pontook Reservoir Tour           |
+| 36      | Pondicherry Trail Ride           |
+| 37      | Seal Beach Harbor                |
+| 38      | Sawyer River Ride                |
+| 4       | Bradbury Mountain Ride           |
+| 40      | Wachusett Mountain               |
+| 6       | Blueberry Mountain               |
+| 7       | Bloomfield - Maidstone           |
+| 8       | Black Pond                       |
++---------+----------------------------------+
+28 rows in set (0.00 sec)
+
+mysql> 
+mysql> #16. Display the trip ID, trip name, and reservation ID for all trips. All trips should be included in the result. For those trips that currently do not have reservations, the reservation ID should be left blank. Order the results by trip ID.
+mysql> 
+mysql> SELECT TRIP.TRIP_ID, TRIP.TRIP_NAME, RESERVATION.RESERVATION_ID FROM TRIP JOIN RESERVATION ON TRIP.TRIP_ID = RESERVATION.TRIP_ID ORDER BY TRIP.TRIP_ID;
++---------+----------------------------------+----------------+
+| TRIP_ID | TRIP_NAME                        | RESERVATION_ID |
++---------+----------------------------------+----------------+
+| 1       | Arethusa Falls                   | 1600012        |
+| 10      | Mt. Cardigan - Firescrew         | 1600015        |
+| 11      | Chocorua Lake Tour               | 1600016        |
+| 12      | Cadillac Mountain Ride           | 1600014        |
+| 12      | Cadillac Mountain Ride           | 1600026        |
+| 15      | Crawford Path Presidentials Hike | 1600030        |
+| 2       | Mt Ascutney - North Peak         | 1600010        |
+| 21      | Long Pond                        | 1600002        |
+| 21      | Long Pond                        | 1600022        |
+| 22      | Long Pond Tour                   | 1600007        |
+| 25      | Mount Battie Ride                | 1600019        |
+| 26      | Mount Cardigan Hike              | 1600004        |
+| 28      | Mount Garfield Hike              | 1600003        |
+| 28      | Mount Garfield Hike              | 1600008        |
+| 28      | Mount Garfield Hike              | 1600020        |
+| 3       | Mt Ascutney - West Peak          | 1600011        |
+| 32      | Northern Forest Canoe Trail      | 1600006        |
+| 32      | Northern Forest Canoe Trail      | 1600021        |
+| 38      | Sawyer River Ride                | 1600009        |
+| 38      | Sawyer River Ride                | 1600018        |
+| 38      | Sawyer River Ride                | 1600024        |
+| 38      | Sawyer River Ride                | 1600025        |
+| 39      | Welch and Dickey Mountains Hike  | 1600005        |
+| 39      | Welch and Dickey Mountains Hike  | 1600017        |
+| 4       | Bradbury Mountain Ride           | 1600029        |
+| 40      | Wachusett Mountain               | 1600001        |
+| 8       | Black Pond                       | 1600013        |
++---------+----------------------------------+----------------+
+27 rows in set (0.00 sec)
+
+mysql> 
+mysql> #17. Repeat Exercise 8 but list the guide name only once and sort the guide names in order by last name.
+mysql> 
+mysql> SELECT LAST_NAME, FIRST_NAME FROM GUIDE,TRIP_GUIDES,TRIP WHERE GUIDE.GUIDE_NUM = TRIP_GUIDES.GUIDE_NUM AND TRIP_GUIDES.TRIP_ID = TRIP.TRIP_ID AND TRIP.TYPE = 'PADDLING' GROUP BY GUIDE.GUIDE_NUM ORDER BY GUIDE.LAST_NAME;
++-----------+------------+
+| LAST_NAME | FIRST_NAME |
++-----------+------------+
+| Devon     | Harley     |
+| Kiley     | Susan      |
+| Stevens   | Lori       |
+| Unser     | Glory      |
++-----------+------------+
+4 rows in set (0.00 sec)
+
+mysql> 
+mysql> #18. Repeat Exercise 11, but this time list only hiking trips in the state of New Hampshire (NH), list each trip only once, and sort the results in descending order by trip name.
+mysql> 
+mysql> SELECT TRIP_NAME FROM TRIP WHERE TYPE = 'HIKING' AND STATE = 'NH' GROUP BY TRIP_NAME ORDER BY TRIP_NAME DESC;
++----------------------------------+
+| TRIP_NAME                        |
++----------------------------------+
+| Welch and Dickey Mountains Hike  |
+| Mt. Chocorua                     |
+| Mt. Cardigan - Firescrew         |
+| Mt Adams                         |
+| Mount Garfield Hike              |
+| Mount Cardigan Hike              |
+| Low Bald Spot Hike               |
+| Crawford Path Presidentials Hike |
+| Cherry Pond                      |
+| Cannon Mtn                       |
+| Black Pond                       |
+| Big Rock Cave                    |
+| Arethusa Falls                   |
++----------------------------------+
+13 rows in set (0.00 sec)
+
+mysql> 
+mysql> Notee

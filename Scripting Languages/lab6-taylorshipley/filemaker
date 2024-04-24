@@ -1,0 +1,90 @@
+#!/usr/bin/python3
+# Taylor Shipley
+# Lab 6 - Filemaker
+# CS 3030 - Scripting Languages
+
+import sys
+import shlex
+import random
+
+#prints random words from parsed file
+def RandWord(fileName):
+
+    s = open(fileName, "r")
+    allText = s.read()
+    words = list(map(str, allText.split()))
+    return random.choice(words)
+
+inCmdFile = ""
+outputFile = ""
+recordCnt = 0
+cmdList= [[]]
+recordNum = 0
+#gets cmdline args
+try:
+    inCmdFile = sys.argv[1]
+    outputFile = sys.argv[2]
+    recordCnt = sys.argv[3]
+except:
+    print("Usage: ./filemaker INPUTCOMMANDFILE OUTPUTFILE RECORDCOUNT")
+    exit(1)
+
+#Parse recordCnt to int
+try:
+    recordNum = int(recordCnt)
+    if(recordNum < 0):
+        raise Exception("RecordCnt non-numeric or negative")
+except:
+    print("Error RecordCount either negative or non-numeric")
+    exit(1)
+
+#Read Files
+try:
+    cmdF = open(inCmdFile, "r")
+    cmdDict = {}
+    cmdDict[inCmdFile] = cmdF.readlines()
+    cmdF.close()
+    for line in cmdDict[inCmdFile]:
+        cmdList.append(shlex.split(line, True))
+    cmdList = [i for i in cmdList if i]
+except:
+    print("Error Reading Files")
+    exit(1)
+
+#execute Commands
+try:
+    
+    bufferString = ""
+    storedValues = {}
+    opFile = open(outputFile, "w")
+    for cm in cmdList:
+        if(cm[0] == "HEADER"):
+            opFile.write(cm[1].encode("utf-8").decode("unicode_escape"))
+    for x in range(recordNum):
+        bufferString = ""
+        for cmd in cmdList:
+            if(cmd[0] == "STRING"):
+                if(len(cmd) == 3):
+                    storedValues[cmd[1]] = cmd[2]
+                bufferString += cmd[len(cmd)-1]
+
+            elif(cmd[0] == "WORD"):
+                rand = RandWord(cmd[len(cmd)-1])
+                if(len(cmd) == 3):
+                    storedValues[cmd[1]] = rand
+                bufferString += rand
+            elif(cmd[0] == "INTEGER"):
+                ranNum = random.randint(int(cmd[len(cmd)-2]), int(cmd[len(cmd)-1]))
+                bufferString += str(ranNum)
+                if(len(cmd) == 4):
+                    storedValues[cmd[1]] = str(ranNum)
+            elif(cmd[0] == "REFER"):
+                bufferString += storedValues[cmd[1]]
+            elif(cmd[0] == "HEADER"):
+                continue
+            else:
+                raise Exception("Command not an option")
+        opFile.write(bufferString.encode("utf-8").decode("unicode_escape"))
+except:
+    print("Error Executing Commands")
+    exit(1)

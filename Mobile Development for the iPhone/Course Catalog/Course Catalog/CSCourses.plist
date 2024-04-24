@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CS 1010</key>
+	<dict>
+		<key>Credits</key>
+		<string>3</string>
+		<key>LongDescription</key>
+		<string>This course examines and analyzes the history of interactive entertainment and its technology (video games, computer games, and simulations) and their impact on an individual and society from the perspective of the game designer and player. Students take a critical look at the artistic, technical, cultural, economic and social aspects of this expressive medium. Students will analyze how advances in hardware have driven game design and capability. A lab fee is required for this class.</string>
+		<key>ShortDescription</key>
+		<string>Introduction to Interactive Entertainment</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 1022</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>Application of the most recent implementations of the Pascal language to the solution of technical and scientific problems. Developing applications for Windows in Object Oriented Pascal using Borland's Delphi Rapid Application Development system. Prerequisites: CS 1030 and basic skills in Algebra.</string>
+		<key>ShortDescription</key>
+		<string>Software Development</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 1023</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>Introduction and application of the most recent implementation of a selected programming language to the solution of technical and scientific problems. The language for a particular instance of this course will be based upon demand. Prerequisites: CS 1030 and basic skills in Algebra.</string>
+		<key>ShortDescription</key>
+		<string>Selected Programming Language</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 1030</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course follows the core body of knowledge specified by the ACM which provides students with a broad overview of topics they might encounter within the Computer Science curriculum. The course is taught at an introductory level and includes topics such as: history of computers, computer architecture, operating systems, world-wide web and HTML, programming with Java, database, software engineering, networking, and more. Co-requisite: Computer Literacy.</string>
+		<key>ShortDescription</key>
+		<string>Foundations of Computer Science</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 1400</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course covers basic operating system operation and components of the development environment.� The majority of the course covers basic problem solving and program design of a software application using a selected language.� Topics presented and discussed depending on selected language include:� thinking logically to solve problems, working with input/output devices, compilation and library use, structured programming and modularity concepts, conditional and iterative structures including recursion, data types and structures, and pointers.� Prerequisite:� CS 1030.</string>
+		<key>ShortDescription</key>
+		<string>Fundamentals of Programming</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 1410</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>An introduction to the C++ language. Topics will include data types, control structures, functions, pointers, arrays, I/O streams, classes, objects, encapsulation, overloading, inheritance and use of these concepts in problem solving. Prerequisite: CS 1400. Recommended: MATH QL1080.</string>
+		<key>ShortDescription</key>
+		<string>Object-Oriented Programming</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 2140</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>An introduction to managing computer operating systems. Covers installation of the operating system, network, and application software. The course will cover the UNIX operating system. Topics include working with disk drives, allocation of resources, security, administering user accounts, monitoring system performance, tuning concepts, remote mounting of file systems, and setting up systems on networks. Prerequisite: CS 1400.</string>
+		<key>ShortDescription</key>
+		<string>Computer Systems Administration</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 2250</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>Introduction to structured problem solving using objects, data enumeration and encapsulation in a selected language. The language for a particular instance of this course will be based upon demand. Prerequisite: Basic skills in fundamental Algebra. This course is for Computer and Electronics Engineering Technology students only.</string>
+		<key>ShortDescription</key>
+		<string>Structured Computing in a Selected Language</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 2350</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>An examination of the issues, operation and design of World Wide Web and Internet applications. Topics include client and server side systems and programming such as HTML, DHTML, XML, Javascript, VBScript, ASP, CGI/Perl; server side file access; technologies such as Dreamweaver, Cold Fusion, and Flash; web page usability, browser and systems compatibility issues; and an understanding of e-commerce. Prerequisite: CS 1410. Co-requisite: CS 2550.</string>
+		<key>ShortDescription</key>
+		<string>World Wide Web and the Internet</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 2400</key>
+	<dict>
+		<key>Credits</key>
+		<string>3</string>
+		<key>LongDescription</key>
+		<string>Strategies and techniques for managing a project from inception to completion to meet all schedule, cost, and technical objectives. Knowledge and skills learned in this course prepare students to perform successfully the role of a project manager in any construction, engineering, health, information technology, business, or research and development project, although emphasis will be on project management within the Department of Defense. Topics include organizational structures, project planning and evaluation, cost estimating, quantitative methods in schedule and cost management, project information systems, communication skills, and conflict resolution. </string>
+		<key>ShortDescription</key>
+		<string>Project Management</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 2420</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>General principles of common data structures and design of efficient algorithms. Topics include: arrays, linked-lists, stacks, queues, trees, graphs, tables, storage and retrieval structures, searching, sorting, hashing, and algorithmic analysis. Emphasis will be on abstraction, efficiency, re-usable code, and object-oriented implementation. Prerequisites: CS 1410 and MATH QL1080.</string>
+		<key>ShortDescription</key>
+		<string>Introduction to Data Structures and Algorithms</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 2450</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>An Object Oriented Analysis and Design course which provides practical guidance on the construction of object-oriented systems. Its specific goals are: to provide a sound understanding of the fundamental concepts of the Software and Project Development Life-Cycle for the object model; to facilitate a mastery of the notion and process of object oriented analysis and design, and to teach quality design and development style through applications of object-oriented project development within a variety of problem domains. In depth coverage of UML and current Software Engineering models. Prerequisites: CS 1410.</string>
+		<key>ShortDescription</key>
+		<string>Object Oriented Analysis and Design</string>
+		<key>WhenTaught</key>
+		<string>F, S </string>
+	</dict>
+	<key>CS 2550</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>An introduction to database concepts, design and application development. The course will cover the SQL language, the design of a database using an entity-relation design tool, and the creation of applications using a development tool such as PowerBuilder. Topics will include normalization rules, triggers, stored procedures, and rules. Extensive time will be spent in the lab learning to use the tool and develop applications. Prerequisite: CS 1410. Recommended prerequisite/co-requisite: MATH 1630.</string>
+		<key>ShortDescription</key>
+		<string>Database Design and Application Development</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 2650</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>A fundamental course designed to explore the specific physical and functional characteristics of computer systems. Topics will include the architecture of the PC including BIOS, interrupts, addressing, memory management, types of disk drives (such as SCSI and EIDE), types of buses, video cards, modems, network cards, hardware compatibility issues, number representations, and/or gates and basic digital circuit concepts. The course also introduces assembly language skills in popular 16 and 32 bit microprocessors. Prerequisite: CS 1030.</string>
+		<key>ShortDescription</key>
+		<string>Computer Architecture/Organization</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 2705</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>A comprehensive examination of the hardware and software components of a network and the practical techniques for designing and implementing computer systems in a network. Topics will include the purpose and use of various LAN, MAN, WAN configurations (Ethernet, rings HDLC, SMDS, ATM, Frame Relay, ISDN, xDSL, TCP/IP UDP/IP, x.25, PPP, Sonet and new protocols. Media type and structures (repeaters, bridges, switches, hubs, routers with routing algorithms, and gateways), signaling/data encoding, multiplexing, error detection/correction and flow control, packet formats, network classes, and subnetting. Prerequisite: CS 1400 or instructor approval.</string>
+		<key>ShortDescription</key>
+		<string>Network Fundamentals and Design</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 2780</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course provides participants with a working knowledge of the Windows Operating System. The students will develop applications to run under Windows, using the C/C++ languages. Concepts of Memory Management, DLLs, Resources, and Child Window development will be emphasized. The course also introduces the student to the use of OLE controls and MFC architecture. Prerequisites: CS 1410 and basic algebra skills.</string>
+		<key>ShortDescription</key>
+		<string>Windows Application Programming</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 2800</key>
+	<dict>
+		<key>Credits</key>
+		<string>1</string>
+		<key>LongDescription</key>
+		<string>Special independent projects or research as contracted with instructor. Enrollment by permission only. This course may be taken up to three times for a maximum of 6 credit hours. Prerequisite: CS 1410.</string>
+		<key>ShortDescription</key>
+		<string>Individual Projects &amp; Research</string>
+		<key>WhenTaught</key>
+		<string>Su, F, S</string>
+	</dict>
+	<key>CS 2890</key>
+	<dict>
+		<key>Credits</key>
+		<string>1</string>
+		<key>LongDescription</key>
+		<string>Open to students meeting criteria established from time to time by the department and on file either in the department or the Cooperative Education Office. Provides academic credit for on-the-job experience. Grade and amount of credit will be determined by the department. This course can be taken up to three times for a maximum of 6 credit hours. Prerequisite: CS 1410.</string>
+		<key>ShortDescription</key>
+		<string>Cooperative Work Experience</string>
+		<key>WhenTaught</key>
+		<string>Su, F, S </string>
+	</dict>
+	<key>CS 2920</key>
+	<dict>
+		<key>Credits</key>
+		<string>1</string>
+		<key>LongDescription</key>
+		<string>Consult the semester class schedule for the current offering under this number. The specific title and credit authorized will appear on the student transcript.</string>
+		<key>ShortDescription</key>
+		<string>Short Courses, Workshops, Institutes and Special Programs</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 3030</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course addresses the design of scripting languages and their applications. Scripting languages can be used to manipulate text and data using subtle and complex coding to automate many tasks. Students will learn to write simple scripts to automate system administration tasks using appropriate languages. This course explores the nature of scripting, the role of scripting languages, introduces some of the popular scripting languages and their applications, and provides skills in scripting language design. Prerequisites CS 1400 and CS 2705.</string>
+		<key>ShortDescription</key>
+		<string>Scripting Languages</string>
+		<key>WhenTaught</key>
+		<string>F, S </string>
+	</dict>
+	<key>CS 3040</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This is the second course for understanding Windows operating systems and the first in the Unix/Linux operating system.� It includes administration in a client/server directory services environment.� Taught in a networking setting, it builds upon complex issues learned in previous courses.� Provides the knowledge and skills necessary to install, configure, network and administer both operating systems.� Prerequisite:� CS 2705.</string>
+		<key>ShortDescription</key>
+		<string>Windows/Unix/Linux Infrastructure and Administration</string>
+		<key>WhenTaught</key>
+		<string>F, S �</string>
+	</dict>
+	<key>CS 3100</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>An overview of computer operating systems concepts, system software components with emphasis on installation, management, monitor/supervisor and I/O management, control commands, network installation, and device drivers. The operating systems studied will be Microsoft� Windows NT or UNIX. Prerequisite/Co-requisite: CS 2420.</string>
+		<key>ShortDescription</key>
+		<string>Operating Systems</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 3210</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course provides hands-on experience with writing programs using UNIX system calls and inter-process Communication mechanisms, from simple file I/O and I/O management subsystems to network client and server programs. The internal design and operation of the UNIX operating systems are studied. A detailed examination of the UNIX SVR4 source code will be included in the course. Prerequisite: CS 2420.</string>
+		<key>ShortDescription</key>
+		<string>UNIX System Programming and Internals</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 3230</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>An introduction to the design and coding of applications using threads. Topics will include the use of threads in the design of operating systems, device drivers, utility programs and general applications. Language used in the course will be Java. Applications will include multimedia, Web Servers, search engines, security issues, and the use of the Java language in the development of applets for home pages. Prerequisite: CS 2420.</string>
+		<key>ShortDescription</key>
+		<string>Internet Multimedia Services and Applications Using Java</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 3250</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>Develop and expand abilities in solving lengthy, advanced problems, multiple parallel tasks, generic packages, and other object-oriented techniques using selected languages. Prerequisite: CS 2420.</string>
+		<key>ShortDescription</key>
+		<string>Advanced Object Oriented Programming</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 3260</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>Introduction to developing applications for mobile iOS devices (iPhone, iPod Touch and iPad) using the iPhone SDK, in conjunction with the Xcode/Cocoa development environment. Students will learn the basics of the Objective-C programming language and use it to develop applications for the iPhone family of devices. Students will also gain experience in working in a team environment. Prerequisite: CS 1410, CS 2350 and CS 2550.</string>
+		<key>ShortDescription</key>
+		<string>Mobile Development for the iPhone</string>
+		<key>WhenTaught</key>
+		<string>S</string>
+	</dict>
+	<key>CS 3270</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>Introduction to developing applications for Android mobile devices. Students will use the Eclipse IDE in conjunction with the Android SDK. Students will gain advanced experience in Java and XML as they develop mobile applications both individually and as members of a development team. Prerequisites: CS2350, CS2550 and CS3230.</string>
+		<key>ShortDescription</key>
+		<string>Mobile Development for Android</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 3280</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course is designed to teach students how to write Windows programs in C# using the .NET environment. The student will learn how to develop programs based on Microsoft Windows Forms and the .NET Framework. They will also be introduced to APIs and MFC/AFX styles of Windows programming and to become familiar with various data sharing methods and .NET services. Prerequisite: CS 2420.</string>
+		<key>ShortDescription</key>
+		<string>Object Oriented Windows Application Development</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 3540</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course describes the role of the Database Administrator in managing an organization's most valuable asset - its data. Topics covered include DBMS architecture, database layout, database development, data fragmentation, rollback segments, database tuning, database security, backup and recovery, database networking, and distributed databases. Special emphasis is given to working with current database management systems such as Oracle, SQL Server and DB2. Prerequisite: CS 2550.</string>
+		<key>ShortDescription</key>
+		<string>Database Administration</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 3550</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>Covers the architecture and applications of a distributed client/server type database system, as well as the installation, management, and interfaces for such a system. Also covers the interfacing of database applications with the WEB. Topics include system tuning and performance, writing imbedded code, and the use of WEB development tools. Prerequisite: CS 2550.</string>
+		<key>ShortDescription</key>
+		<string>Distributed Database Architecture Management and Application</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 3610</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This is course is an introduction to the game industry and the skills and best practices needed in order to become a game developer. The course will evaluate different gaming hardware, genre, skills, tools, and roles. Students will also understand the elements in creating a game including the game design document, story line, vision, virtual worlds, playfields, and the mathematics and physics that are involved with game development. Prerequisites: CS SI1400.</string>
+		<key>ShortDescription</key>
+		<string>Introduction to Game Industry</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 3705</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course provides an in depth look at the fundamentals of what protocols do and how they work, how addresses and routing are used to move data through the network, and how information is exchanged over the Internet. In depth analysis of network traffic packets will include normal traffic as well as protocol attack patterns. Topics include: DNS, Apache, email, Samba, PPP, DHCP, TCP, IP, and UDP troubleshooting, and security. Prerequisite: CS 2705 or TBE 2435.</string>
+		<key>ShortDescription</key>
+		<string>Protocol Analysis</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 3720</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>A practical applications course designed to teach the basic concepts associated with local and wide area networks and protocols. The course will concentrate on the TCP/IP and other protocols in the UNIX and Windows NT environments. Covers TCP/IP extensively, NFS, Sockets, RPC and TLI interfaces. The course also covers the use of Domain Name Servers, remote system calls, ports, services, configuration, IP addressing, and UNIX and Windows NT monitoring commands. Prerequisite: CS 3705.</string>
+		<key>ShortDescription</key>
+		<string>Network Architectures and Protocols</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 3730</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>Covers client/server architecture and application development using TCP/IP and other protocols. The course covers client/server operations on a single machine and across an Ethernet network to multiple machines. The course will also cover distributed processing concepts and applications. Applications include the use of STREAMS, Sockets, TLI, network listener facility, drivers, RPC, and ONC. The course will concentrate mainly on UNIX but will cover some concepts and applications using Windows NT. Prerequisites: CS 2705 and CS 3210.</string>
+		<key>ShortDescription</key>
+		<string>Client/Server Network Programming</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 3750</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This is an in-depth course in the SDLC (Software Development Life Cycle). Students will demonstrate an understanding of the SDLC phases and develop the following individual documents: Software Requirements, Software Design, Code, Test Plan and User Manual. A team programming project is included. Prerequisites: CS 2420 and ENGL 3100 or TBE 3250. Recommended prerequisite: CS 3100.</string>
+		<key>ShortDescription</key>
+		<string>Software Engineering</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 3805</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course is designed to provide students with a solid foundation in network security including a treatment of security issues related to computers and computer networking. The primary emphasis is on developing security policies, security auditing, security models and laws related to security. Prerequisites: CS 2420, ENGL 3100 or TBE 3250, and CS 3705. Recommended prerequisite: CS 3100.</string>
+		<key>ShortDescription</key>
+		<string>Computer and Network Security</string>
+		<key>WhenTaught</key>
+		<string>F, S </string>
+	</dict>
+	<key>CS 3830</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course focuses on how to develop software systems that are robust and can withstand repeated attacks from malicious intruders. The course coverage includes the need for secure systems, basic security principles and strategies, designing secure applications, secure coding techniques, dangerous APIs, data input issues, network security problems, testing secure applications, security code reviews, secure software installation, and writing security documentation. Prerequisite: CS 2420.</string>
+		<key>ShortDescription</key>
+		<string>Writing Secure Code</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 3840</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course is a foundational course in file system analysis, digital forensics and computer media analysis. A combination of lectures and labs will give students a strong understanding of low-level file system knowledge to prepare them for involvement in digital forensic analysis, data recovery and other related tasks. Students will examine widely used file systems such as Windows NTFS and FAT32, UFS, EXT2 and UFS2. Students will also become familiar with software tools used in computer forensic work. Prerequisites: CS 2420 and CS 3040. Recommended prerequisite: CS 3100.</string>
+		<key>ShortDescription</key>
+		<string>Computer Architecture for Security Assurance</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 4110</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>Concepts of formal language definition, automata theory, Turing theory, and solvability, with an introduction of algorithms and computational methods used in advanced computer science courses. Prerequisite: CS 2420 and MATH 1630.</string>
+		<key>ShortDescription</key>
+		<string>Concepts of Formal Languages and Algorithms for Computing</string>
+		<key>WhenTaught</key>
+		<string>S</string>
+	</dict>
+	<key>CS 4230</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course is a continuation of CS 3230 and examines the development of Java applications intended for an enterprise environment. The course is programming intensive and concentrates on designing and implementing multi-tier and Web applications based on the Java Enterprise Edition (Java EE) specification. Topics include JavaBeans, Java Database Connectivity, client/server interactions, servlets, session tracking, JavaServer Pages, JavaServer Faces, struts, the Model-View-Controller approach, remote method invocation, Enterprise JavaBeans, and application servers. Lab exercises will emphasize how Java Enterprise programming supports the operation of robust, distributed object architectures. Prerequisite: CS 3230.</string>
+		<key>ShortDescription</key>
+		<string>Java Application Development</string>
+		<key>WhenTaught</key>
+		<string>S</string>
+	</dict>
+	<key>CS 4280</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>Selected algorithms and computational methods used in the design of graphical software and applications developed for UNIX and Windows NT based machines. Topics will include the use of OpenGL, 3D Studio MAX, Auto-Cad, Adobe PhotoShop, and other popular graphics software. The course will include X-Window programming and the use of Sun, SGI, and PC (Intel/Cyrx) machines. Prerequisite: CS 2420.</string>
+		<key>ShortDescription</key>
+		<string>Computer Graphics</string>
+		<key>WhenTaught</key>
+		<string>S</string>
+	</dict>
+	<key>CS 4350</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course builds on the knowledge of CS 2350 to go deeper into the areas of eBusiness, multimedia, HTML, DHTML, XML, Javascript, Java, ASP, PHP, Python, Perl, Flash, and other technologies focusing on the server-side coding and database manipulation required for enterprise level web applications. It requires a high level of programming skill and knowledge of databases. Prerequisites: CS 2350, CS 2550.</string>
+		<key>ShortDescription</key>
+		<string>Advanced Internet Programming</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 4500</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course covers basic artificial intelligence principles and introduces students to AI languages. Concepts of programming parallel architecture machines are introduced and developed. The neural network design of parallel computing is studied, along with its implications in Artificial Intelligence software development. Prerequisites: CS 2420 and MATH 1630.</string>
+		<key>ShortDescription</key>
+		<string>Artificial Intelligence and Neural Networks</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 4640</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course introduces students to 2D game development using a programming language, scripting, and a gaming engine. The work includes team work project, graphical programming, GUI, and all other aspects of creating a game program associated with a game design document. Pre/Co-requisites: PHYS PS/SI2010 or PHYS PS/SI2210, MATH SI1210. Prerequisite: CS 4610.</string>
+		<key>ShortDescription</key>
+		<string>Game Development I</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 4650</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>Senior project Game Development II course focuses on 3D game programming in a team work project environment using a game engine. At conclusion student should be able to add the resulting program into their game portfolio. Pre/Co-requisites: MATH 2270 or MATH 2250, CS 4280, CS 4500, CS 4750, CS 4820. Prerequisite: CS 4640.</string>
+		<key>ShortDescription</key>
+		<string>Game Development II</string>
+		<key>WhenTaught</key>
+		<string></string>
+	</dict>
+	<key>CS 4730</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course provides an introduction to the principles of number theory and how they are applied to cryptographic algorithms. Different topics that will be examined are: several classic ciphers, modern cryptographic methods, symmetric encryption, public key cryptography, hash functions, key management, digital signatures, certificates, electronic mail security, steganography, and recent developments affecting security and privacy on the Internet. The focus will be on how cryptography and their application can maintain privacy and security in computer networks. Prerequisites: CS 2420 and MATH 1630.</string>
+		<key>ShortDescription</key>
+		<string>Applied Cryptography</string>
+		<key>WhenTaught</key>
+		<string>F</string>
+	</dict>
+	<key>CS 4740</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>A treatment of security issues related to computers and computer networking. This course is designed for advanced users, system administrators and network administrators. The course covers TCP/IP security issues, security policies, packet filtering, Internet firewall architecture and theory, detecting and monitoring unauthorized activity, password authentication, intrusion detection and prevention and other security issues involving Linux, UNIX and Microsoft Windows operating systems. A team project is included. Prerequisites: MATH QL1040 or MATH SI1220, ENGL 3100 or TBE 3250, CS 3100 and CS 3705.</string>
+		<key>ShortDescription</key>
+		<string>Security Vulnerabilities and Attack Prevention</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 4750</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This is the second of a two-part series, with CS 3750 being the first class.� Rapid programming techniques and issues in distributed systems are examined. Includes issues relating to large programming projects such as software metrics. A large team programming project is included. Prerequisite: CS 3750.</string>
+		<key>ShortDescription</key>
+		<string>Advanced Software Engineering</string>
+		<key>WhenTaught</key>
+		<string>S</string>
+	</dict>
+	<key>CS 4780</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course is designed to teach students how to write Windows programs in C# using the .NET environment. The student will learn how to develop programs based on Microsoft Windows Forms and the .NET Framework. They will also be introduced to APIs and MFC/AFX styles of Windows programming and to become familiar with various data sharing methods and .NET services. Prerequisite: CS 2420.</string>
+		<key>ShortDescription</key>
+		<string>Object Oriented Windows Application Development</string>
+		<key>WhenTaught</key>
+		<string>F</string>
+	</dict>
+	<key>CS 4790</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>This course is designed to teach sound concepts in n-tier development of web applications using ASP.NET. Students will develop multiple applications using RAD and OOP techniques using the n-tier model. Skills mastered in this course will include: Use of C# and VB within the Microsoft .NET framework, ADO.NET, SQL Server, Oracle, DHTML, XML and layered application design. Prerequisite: CS 2350.</string>
+		<key>ShortDescription</key>
+		<string>N-Tier Web Programming</string>
+		<key>WhenTaught</key>
+		<string>F</string>
+	</dict>
+	<key>CS 4800</key>
+	<dict>
+		<key>Credits</key>
+		<string>1</string>
+		<key>LongDescription</key>
+		<string>The purpose of this course is to permit senior Computer Science majors to propose to the faculty for approval an individual project, program, system or research. This course may be taken up to three times for a maximum of 6 credit hours. Prerequisite: CS 2420.</string>
+		<key>ShortDescription</key>
+		<string>Individual Projects and Research</string>
+		<key>WhenTaught</key>
+		<string>Su, F, S</string>
+	</dict>
+	<key>CS 4820</key>
+	<dict>
+		<key>Credits</key>
+		<string>4</string>
+		<key>LongDescription</key>
+		<string>A study of compilers, grammars, finite-state and push down automata, scanning, parsing, error handling, semantic analysis and code generation. Prerequisite: CS 2420.</string>
+		<key>ShortDescription</key>
+		<string>Compiler Design</string>
+		<key>WhenTaught</key>
+		<string>S</string>
+	</dict>
+	<key>CS 4830</key>
+	<dict>
+		<key>Credits</key>
+		<string>1</string>
+		<key>LongDescription</key>
+		<string>Advanced topics which are demanded by industry, are currently popular in this rapidly changing field, or which meet special needs of students in Computer Science will be offered. Individualized material will be taught on a one time basis as needed. Time and credit to be arranged. May be repeated. Prerequisite: Consent of instructor.</string>
+		<key>ShortDescription</key>
+		<string>Advanced Topics in Computer Science</string>
+		<key>WhenTaught</key>
+		<string>F, S - Variable Title</string>
+	</dict>
+	<key>CS 4890</key>
+	<dict>
+		<key>Credits</key>
+		<string>1</string>
+		<key>LongDescription</key>
+		<string>Open to students meeting criteria established by department or Cooperative Education office. Provides academic credit for on-the- job experience. Grade and amount of credit determined by department. This course may be taken up to three times for a maximum of 6 credit hours. Prerequisite: CS 2420.</string>
+		<key>ShortDescription</key>
+		<string>Cooperative Work Experience</string>
+		<key>WhenTaught</key>
+		<string>Su, F, S</string>
+	</dict>
+	<key>CS 4899</key>
+	<dict>
+		<key>Credits</key>
+		<string>0</string>
+		<key>LongDescription</key>
+		<string>This course is to serve as an assessment tool whereby all BS/BA degree seeking students in the Computer Science Department demonstrate their learned knowledge in at least three areas of computer science. At present, this knowledge will be demonstrated through the use of Chi Tester exams administered through the Campus Testing Center. The course is taken during the last term prior to receiving the BS/BA degree. Prereq/Coreq: Successful completion of requirements for the Bachelor's Degree.</string>
+		<key>ShortDescription</key>
+		<string>Bachelor's Degree Assessment</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+	<key>CS 4920</key>
+	<dict>
+		<key>Credits</key>
+		<string>1</string>
+		<key>LongDescription</key>
+		<string>Consult the semester class schedule for the current offering under this number. The specific title and credit authorized will appear on the student transcript.</string>
+		<key>ShortDescription</key>
+		<string>Short Courses, Workshops, Institutes and Special Projects</string>
+		<key>WhenTaught</key>
+		<string>F</string>
+	</dict>
+	<key>MGMT 2400</key>
+	<dict>
+		<key>Credits</key>
+		<string>3</string>
+		<key>LongDescription</key>
+		<string>Strategies and techniques for managing a project from inception to completion to meet all schedule, cost, and technical objectives. Knowledge and skills learned in this course prepare students to perform successfully the role of a project manager in any construction, engineering, health, information technology, business, or research and development project, although emphasis will be on project management within the Department of Defense. Topics include organizational structures, project planning and evaluation, cost estimating, quantitative methods in schedule and cost management, project information systems, communication skills, and conflict resolution. </string>
+		<key>ShortDescription</key>
+		<string>Project Management</string>
+		<key>WhenTaught</key>
+		<string>F, S</string>
+	</dict>
+</dict>
+</plist>

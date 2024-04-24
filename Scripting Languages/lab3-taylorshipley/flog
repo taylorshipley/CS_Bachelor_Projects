@@ -1,0 +1,50 @@
+#!/bin/bash 
+# Taylor Shipley 
+# Lab3 - Failed Login Report
+# CS 3030 - Scripting Languages
+
+# Check if the script has been passed one command-line argument
+if [ $# -ne 1 ]; then
+    echo "Usage: flog LOGFILE"
+    exit 1
+fi
+
+# Use grep to search for the string "Failed password for" in the log file passed as an argument ( $1) and redirects the output to a file called "s1out".
+grep 'Failed password for ' $1 >s1out
+
+# Use sed to search for a specific pattern in the log file passed as an argument ( $1) and modify the matching lines in a certain way, then redirects the output to a file called "s2out".
+sed -n 's/.*Failed password for \([a-z0-9A-Z_]*\) .*/\1/p' $1 >s2out
+
+# Use sort to sort the contents of the "s2out" file and redirects the output to a new file called "s3out".
+sort <s2out >s3out
+
+# Use uniq with the -c option to count the number of occurrences of each unique line in the "s3out" file and redirects the output to a new file called "s4out".
+uniq -c <s3out >s4out
+
+# Use sort with the options -k1,1nr -k2,2 to sort the contents of the "s4out" file by the first column (-k1,1nr) in descending order and by the second column (-k2,2) in ascending order, and redirects the output to a new file called "s5out".
+sort -k1,1nr -k2,2 s4out >s5out
+
+# Use sed to replace the word "invalid" in the "s5out" file with "<UNKNOWN>" and redirects the output to a new file called "s6out".
+sed 's/invalid/\&lt;UNKNOWN\&gt;/' <s5out >s6out
+
+# Remove the file "s7out" if it exists.
+rm -f s7out
+
+# Use a while loop to read the contents of the "s6out" file, one line at a time, and for each line, use the printf command to format the output and write it to the "s7out" file.
+cat s6out| while read mycount myuserid; do
+	printf "%'d %s\n" "$mycount" "$myuserid" >>s7out
+done
+
+# Use the printf command to write an HTML header to a file called "s8out".
+printf "<html>\n<body><h1>Failed Login Attempts Report as of $(date +"%a %b %d %T %Z %Y")</h1>\n" >s8out
+
+# Use another while loop to read the contents of the "s7out" file, one line at a time, and for each line, use the printf command to format the output as an HTML line and write it to the "s8out" file.
+cat s7out| while read mycount myuserid; do
+	printf "<br />  %s %s\n" "$mycount" "$myuserid" >>s8out
+done
+
+# Use the printf command to write HTML closing tags for body and html to a file called "s8out".
+printf "</body> </html>" |less >>s8out
+
+cat s8out
+

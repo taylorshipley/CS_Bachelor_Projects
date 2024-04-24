@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+body
+{
+	background: slategrey;
+	padding: 1px;
+}
+
+h1
+{
+ 	text-shadow: 4px 4px 2px blue;
+	text-align: center;
+}
+
+h2
+{
+	outline: solid;
+	outline-color: black;
+}
+
+
+.batman
+{
+	text-align: center;
+	background-color: darkgray;
+	color: blue;
+}
+
+.wonder-woman
+{
+	text-align: center;
+	color: gold;
+	background-color: red;
+}
+
+.superman
+{
+	text-align: center;
+	color: red;
+	background-color: blue;
+}
+
+.spiderman
+{
+	text-align: center;
+	color: black;
+	text-shadow: 2px 2px 5px red;
+	background-color: blue;
+}
+
+.ironman 
+{
+	text-align: center;
+	color: #fbca03;
+	text-shadow: 3px 3px 5px black;
+	background-color: #6a0c0b;
+}
+.thor 
+{
+	text-align: center;
+	color: #870000;
+	text-shadow: 3px 3px 5px #c3c1c1;
+	background-color: #03ADE9;
+}

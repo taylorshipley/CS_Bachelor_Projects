@@ -1,0 +1,20 @@
+# xv6 Priority Scheduling Update README
+
+This repository contains an updated version of the xv6 operating system that supports priority scheduling. The following files have been created or modified:
+
+## Created Files:
+
+1. `priTest.c`: This file contains a program that tests the priority setting and nice system calls, and spawns multiple child processes with different priorities.
+2. `priCount.c`: This file contains a program that simply counts and prints numbers, and is used to create a load for the scheduler.
+3. `forkExecTest.c`: This file was created to spawn child processes that call `priTest.c`, and pass different arguments to set different priorities.
+4. `count.c`: This file was created as a simple counter program to simulate process load.
+
+## Modified Files:
+
+1. `user.h`: This file was updated to declare the user-level functions for the new system calls `nice`, `getpriority`, and `setpriority`.
+2. `syscall.h` & `syscall.c`: These files were updated to add the new system calls to the system call table.
+3. `sysproc.c`: This file was updated to implement the new system calls `sys_nice`, `sys_getpriority`, and `sys_setpriority`.
+4. `proc.h` & `proc.c`: These files were updated to add a `priority` field to the `proc` structure and to modify the scheduler to take this priority into account.
+5. `usys.S`: This file was updated to add the new system calls so they can be used in user space.
+6. `Makefile`: The Makefile was updated to include the newly created C files (`priTest.c`, `priCount.c`, `forkExecTest.c`, `count.c`) so they will be compiled and linked properly.
+

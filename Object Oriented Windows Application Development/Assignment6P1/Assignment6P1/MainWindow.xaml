@@ -1,0 +1,99 @@
+﻿<Window x:Class="Assignment6P1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment6P1"
+        mc:Ignorable="d"
+        Title="Flight Reservation" Height="440" Width="800" ResizeMode="NoResize">
+    <Canvas>
+        <Grid x:Name="gdSeats" HorizontalAlignment="Left" Height="175" VerticalAlignment="Top" Canvas.Left="39" Canvas.Top="87" Width="390" Visibility="Collapsed" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="10*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="52*" />
+                <ColumnDefinition Width="52*" />
+                <ColumnDefinition Width="52*" />
+                <ColumnDefinition Width="38" />
+                <ColumnDefinition Width="52*" />
+                <ColumnDefinition Width="52*" />
+                <ColumnDefinition Width="52*" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="seat1" Margin="5,5,5,5"  Background="Blue" Content="1" Grid.Row="0" Grid.Column="0" Click="btSeat_Click" />
+            <Button x:Name="seat2" Margin="5,5,5,5"  Background="Blue" Content="2" Grid.Row="0" Grid.Column="1" Click="btSeat_Click" />
+            <Button x:Name="seat3" Margin="5,5,5,5"  Background="Blue" Content="3" Grid.Row="0" Grid.Column="2" Click="btSeat_Click" />
+            <Button x:Name="seat4" Margin="5,5,5,5"  Background="Blue" Content="4" Grid.Row="0" Grid.Column="4" Click="btSeat_Click" />
+            <Button x:Name="seat5" Margin="5,5,5,5"  Background="Blue" Content="5" Grid.Row="0" Grid.Column="5" Click="btSeat_Click" />
+            <Button x:Name="seat6" Margin="5,5,5,5"  Background="Blue" Content="6" Grid.Row="0" Grid.Column="6" Click="btSeat_Click" />
+
+            <Line X1="0" Y1="0" X2="100" Y2="0" Stroke="Black" StrokeThickness="4" Grid.Row="1" Grid.Column="0" Height="NaN" Margin="0,0,51,40" Grid.RowSpan="2" Width="NaN" Grid.ColumnSpan="2"/>
+            <Line X1="0" Y1="0" X2="100" Y2="0" Stroke="Black" StrokeThickness="4" Grid.Row="1" Grid.Column="1" Height="NaN" Margin="0,0,0,40" Grid.RowSpan="2" Width="NaN"/>
+            <Line X1="0" Y1="0" X2="100" Y2="0" Stroke="Black" StrokeThickness="4" Grid.Row="1" Grid.Column="1" Height="NaN" Margin="51,0,0,40" Grid.RowSpan="2" Width="NaN" Grid.ColumnSpan="2"/>
+            <Line X1="0" Y1="0" X2="100" Y2="0" Stroke="Black" StrokeThickness="4" Grid.Row="1" Grid.Column="2" Height="NaN" Margin="52,0,0,40" Grid.RowSpan="2" Width="NaN" Grid.ColumnSpan="2"/>
+            <Line X1="0" Y1="0" X2="100" Y2="0" Stroke="Black" StrokeThickness="4" Grid.Row="1" Grid.Column="3" Height="NaN" Margin="28,0,51,40" Grid.RowSpan="2" Width="NaN" Grid.ColumnSpan="3"/>
+            <Line X1="0" Y1="0" X2="100" Y2="0" Stroke="Black" StrokeThickness="4" Grid.Row="1" Grid.Column="5" Height="NaN" Margin="0,0,0,40" Grid.RowSpan="2" Width="NaN"/>
+            <Line X1="0" Y1="0" X2="100" Y2="0" Stroke="Black" StrokeThickness="4" Grid.Row="1" Grid.Column="5" Height="NaN" Margin="51,0,0,40" Grid.RowSpan="2" Width="NaN" Grid.ColumnSpan="2"/>
+
+            <Button x:Name="seat7" Margin="5,5,5,5"  Background="Blue" Content="7" Grid.Row="1" Grid.Column="0" Click="btSeat_Click"/>
+            <Button x:Name="seat8" Margin="5,5,5,5"  Background="Blue" Content="8" Grid.Row="1" Grid.Column="1" Click="btSeat_Click"/>
+            <Button x:Name="seat9" Margin="5,5,5,5"  Background="Blue" Content="9" Grid.Row="1" Grid.Column="2" Click="btSeat_Click"/>
+            <Button x:Name="seat10" Margin="5,5,5,5"  Background="Blue" Content="10" Grid.Row="1" Grid.Column="4" Click="btSeat_Click"/>
+            <Button x:Name="seat11" Margin="5,5,5,5"  Background="Blue" Content="11" Grid.Row="1" Grid.Column="5" Click="btSeat_Click"/>
+            <Button x:Name="seat12" Margin="5,5,5,5"  Background="Blue" Content="12" Grid.Row="1" Grid.Column="6" Click="btSeat_Click"/>
+
+            <Button x:Name="seat13" Margin="5,5,5,5"  Background="Blue" Content="13" Grid.Row="2" Grid.Column="0" Click="btSeat_Click"/>
+            <Button x:Name="seat14" Margin="5,5,5,5"  Background="Blue" Content="14" Grid.Row="2" Grid.Column="1" Click="btSeat_Click"/>
+            <Button x:Name="seat15" Margin="5,5,5,5"  Background="Blue" Content="15" Grid.Row="2" Grid.Column="2" Click="btSeat_Click"/>
+            <Button x:Name="seat16" Margin="5,5,5,5"  Background="Blue" Content="16" Grid.Row="2" Grid.Column="4" Click="btSeat_Click"/>
+            <Button x:Name="seat17" Margin="5,5,5,5"  Background="Blue" Content="17" Grid.Row="2" Grid.Column="5" Click="btSeat_Click"/>
+            <Button x:Name="seat18" Margin="5,5,5,5"  Background="Blue" Content="18" Grid.Row="2" Grid.Column="6" Click="btSeat_Click"/>
+
+            <Button x:Name="seat19" Margin="5,5,5,5" Background="Blue" Content="19" Grid.Row="3" Grid.Column="0" Click="btSeat_Click"/>
+            <Button x:Name="seat20" Margin="5,5,5,5" Background="Blue" Content="20" Grid.Row="3" Grid.Column="1" Click="btSeat_Click"/>
+            <Button x:Name="seat21" Margin="5,5,5,5" Background="Blue" Content="21" Grid.Row="3" Grid.Column="2" Click="btSeat_Click"/>
+            <Button x:Name="seat22" Margin="5,5,5,5" Background="Blue" Content="22" Grid.Row="3" Grid.Column="4" Click="btSeat_Click"/>
+            <Button x:Name="seat23" Margin="5,5,5,5" Background="Blue" Content="23" Grid.Row="3" Grid.Column="5" Click="btSeat_Click"/>
+            <Button x:Name="seat24" Margin="5,5,5,5" Background="Blue" Content="24" Grid.Row="3" Grid.Column="6" Click="btSeat_Click"/>
+        </Grid>
+
+        <TextBlock Canvas.Left="148" Canvas.Top="50">
+        <Label x:Name="lbFlightNum" Content="" Canvas.Left="148" Canvas.Top="50" Height="28" Width="128" FontFamily="Arial Black" FontSize="18" HorizontalContentAlignment="Center"/>
+        <Line X1="-90" Y1="0" X2="-40" Y2="0" Stroke="Black" StrokeThickness="4" HorizontalAlignment="Center"/>
+        </TextBlock>
+        <GroupBox x:Name="ColorKey" Height="168" Header="Color Key" Canvas.Left="467" Canvas.Top="220" Width="309" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Segoe UI Black">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel HorizontalAlignment="Left" Height="140" Width="33" Margin="17,0,0,0" VerticalAlignment="Top" >
+                    <Label x:Name="RedLegend" Background="Red" Height="30" Width="30" Margin="0,10,0,10"/>
+                    <Label x:Name="BlueLegend" Background= "Blue" Height="30" Width="30" Margin="0,10,0,10"/>
+                    <Label x:Name="GreenLegend" Background= "Green" Height="30" Width="30" Margin="0,10,0,10"/>
+                </StackPanel>
+                <StackPanel Height="140" Width="227"  Margin="17,0,0,0" Canvas.Left="526" VerticalAlignment="Top" Canvas.Top="238">
+                    <Label x:Name="RedLabel"   Height="30" Width="226" Margin="0,10,0,10" HorizontalAlignment="Left" Content="Seat is taken" FontSize="14"/>
+                    <Label x:Name="BlueLabel"  Height="30" Width="226" Margin="0,10,0,10" HorizontalAlignment="Left" Content="Seat is empty" FontSize="14"/>
+                    <Label x:Name="GreenLabel" Height="30" Width="226" Margin="0,10,0,10" HorizontalAlignment="Left" Content="Selected Passengers Seat" FontSize="14"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <Grid Height="116" Canvas.Left="458" Canvas.Top="18" Width="316" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <StackPanel HorizontalAlignment="Left" Height="123" VerticalAlignment="Top" Width="140">
+                <Label Content="Choose Flight:" FontSize="14" FontFamily="Segoe UI Black" Margin="0,0,0,10" HorizontalAlignment="Right"/>
+                <Label Content="Choose Passenger:" FontSize="14" FontFamily="Segoe UI Black" Margin="0,0,0,10" HorizontalAlignment="Right"/>
+                <Label Content="Passenger's Seat" FontSize="14" FontFamily="Segoe UI Black" HorizontalAlignment="Right" />
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Height="115" Margin="164,0,0,0" VerticalAlignment="Top" Width="150">
+                <ComboBox x:Name="cbChooseFlight" Height="29"  Width="150" Margin="0,0,0,10" HorizontalAlignment="Left" SelectionChanged="cbChooseFlight_SelectionChanged"/>
+                <ComboBox x:Name="cbChoosePassenger" Height="29" Width="150" Margin="0,0,0,10" HorizontalAlignment="Left" SelectionChanged="cbChoosePassenger_SelectionChanged" IsEnabled="False"/>
+                <Rectangle Height="29" Stroke="Black" Width="150" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </Grid>
+        <Button x:Name="btChangeSeat" Content="Change Seat" Height="24" Width="123" Canvas.Left="648" Canvas.Top="143" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Click="btChangeSeat_Click"/>
+        <Button x:Name="btDeletePassenger" Content="Delete Passenger" Height="24" Width="123" Canvas.Left="648" Canvas.Top="185" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Click="btDeletePassenger_Click"/>
+        <Button x:Name="btAddPassenger" Content="Add Passenger" Height="24" Width="123" Canvas.Left="500" Canvas.Top="185" HorizontalAlignment="Center" VerticalAlignment="Center" Click="AddPassengerButton_Click" IsEnabled="False"/>
+        <Label x:Name="lbPassengersSeat" Height="26" Width="145" Canvas.Left="626" Canvas.Top="99" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+    </Canvas>
+</Window>

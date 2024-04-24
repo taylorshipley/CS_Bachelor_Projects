@@ -1,0 +1,72 @@
+#!/usr/bin/python3
+# Taylor Shipley
+# Lab 5 - Database Loader
+# CS 3030 - Scripting Languages
+
+import sqlite3
+import csv
+import sys
+
+# Prints usage if 2 arguments were not passed
+if len(sys.argv) != 3:
+    print("\nUsage: dbload CSV_FILE DATABASE (load CSV_FILE into DATABASE)")
+    sys.exit(1)
+
+# Reads in CSV file
+file = sys.argv[1]
+
+try:
+    # Connects to database
+    conn = sqlite3.connect(sys.argv[2])
+    curs = conn.cursor()
+except sqlite3.Error as e:
+    print(f"Error encountered while opening the database: {e}")
+    sys.exit(1)
+
+# Drops/Creates table for courses
+curs.execute('''DROP TABLE IF EXISTS courses''')
+curs.execute('''CREATE TABLE courses
+                (id TEXT, subjcode TEXT, coursenumber TEXT, termcode TEXT)''')
+
+# Drops/Creates table for people
+curs.execute('''DROP TABLE IF EXISTS people''')
+curs.execute('''CREATE TABLE people
+                (id TEXT PRIMARY KEY UNIQUE, lastname TEXT, firstname TEXT, email TEXT, major TEXT, city TEXT, state TEXT, zip TEXT)''')
+
+# Open CSV file in a try block to handle potential errors
+try:
+    with open(file, 'r') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+        
+        # Reads data from each row
+        counter = 0
+        for row in reader:
+            counter += 1
+            
+            # Skips first row header
+            if counter == 1:
+                continue
+            
+            # Seperates subject code from course number
+            coursedata = row[5].split(" ")
+            
+            # Adds values to courses table
+            curs.execute('''INSERT INTO courses (id, subjcode, coursenumber, termcode) 
+                            VALUES (?,?,?,?)''', (row[0], coursedata[0], coursedata[1], row[6]))
+            
+            # Check if the value of row[0] is unique
+            curs.execute("SELECT COUNT(*) FROM people WHERE id=?", (row[0],))
+            count = curs.fetchone()[0]
+            
+            if count == 0:
+                # Value is unique, insert it into the table
+                curs.execute('''INSERT INTO people (id, lastname, firstname, email, major, city, state, zip) 
+                                VALUES (?,?,?,?,?,?,?,?)''', (row[0], row[2], row[1], row[3], row[4], row[7], row[8], row[9]))
+            else:
+                # Handle non-unique value
+                print(f"The value '{row[0]}' already exists in the People table")
+        conn.commit()
+except Exception as e:
+    print(f"Error encountered while reading the CSV file: {e}")
+    sys.exit(1)
+

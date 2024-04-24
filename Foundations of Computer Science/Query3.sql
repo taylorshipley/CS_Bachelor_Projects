@@ -1,0 +1,2 @@
+SELECT role
+FROM roles

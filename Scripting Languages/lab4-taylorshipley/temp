@@ -1,0 +1,68 @@
+#!/usr/bin/python3
+# Taylor Shipley
+# Lab 4 - Temp
+# CS 3030 - Scripting Languages
+
+# Tempeture conversion functions
+def fahrenheitToCelsius(F):
+	C = (F - 32.0) * (5.0/9.0)
+	C = round(C,1)
+	return C
+
+def celsiusToFahrenheit(C):
+	F = (9.0/5.0) * C + 32.0
+	F = round(F,1)
+	return F
+	
+# Print: Welcome Message	
+print("Welcome to the CS 3030 Temperature Conversion Program")
+
+# Loops Menu until user inputs 3
+i = 0
+while i != 3:
+
+	# Propts user to choose from menu
+	menu = input("Main Menu\n\n1.Fahrenheit to Celsius\n2.Celsius to Fahrenheit\n3.Exit Program\n\nPlease enter 1, 2, or 3: ")
+
+
+	#Convert the user's answer to an integer if possible
+	try:
+		i = int(menu)
+	except:
+		print("\nInvalid entry: '%s' is not an integer\n" % menu)
+		continue
+	
+	# Executes code associated with input for menu
+
+	# Closes program if user enters 3
+	if (i==3):
+		exit(0)
+
+	# Converts Fahrenheit to Celsius
+	elif (i==1):
+		fahrenheit = input("\nPlease enter degrees Fahrenheit: ")
+		# Validates user input before converting
+		try:
+			fahrenheit = float(fahrenheit)
+		except: 
+			print("\nInvalid entry: %s is not a number\n" % fahrenheit)
+			continue
+		celsius = fahrenheitToCelsius(fahrenheit)
+		print("\n" + str(fahrenheit) +" degrees Fahrenheit equals "+ str(celsius) + " degrees Celsius")
+			
+	# Converts Celsius to Fahrenheit		
+	elif (i==2):
+		# Validates user input before converting
+		celsius = input("\nPlease enter degrees Celsius: ")
+		try:
+			celsius= float(celsius)
+		except: 
+			print("\nInvalid entry: %s is not a number\n" % celsius)
+			continue
+		fahrenheit = celsiusToFahrenheit(celsius)
+		print("\n" + str(celsius) +" degrees Celsius equals " + str(fahrenheit) + " degrees Fahrenheit" )
+			
+	# Default catch if user didn't input 1, 2 or 3		
+	else:
+		print("\nInput must be either 1, 2 or 3. Try again.")
+

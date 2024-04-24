@@ -1,0 +1,598 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EA4DDA1A2A3E795700AFFB5F /* Course_CatalogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4DDA192A3E795700AFFB5F /* Course_CatalogApp.swift */; };
+		EA4DDA1C2A3E795700AFFB5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4DDA1B2A3E795700AFFB5F /* ContentView.swift */; };
+		EA4DDA1E2A3E795800AFFB5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA4DDA1D2A3E795800AFFB5F /* Assets.xcassets */; };
+		EA4DDA212A3E795800AFFB5F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA4DDA202A3E795800AFFB5F /* Preview Assets.xcassets */; };
+		EA4DDA2B2A3E795800AFFB5F /* Course_CatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4DDA2A2A3E795800AFFB5F /* Course_CatalogTests.swift */; };
+		EA4DDA352A3E795800AFFB5F /* Course_CatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4DDA342A3E795800AFFB5F /* Course_CatalogUITests.swift */; };
+		EA4DDA372A3E795800AFFB5F /* Course_CatalogUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4DDA362A3E795800AFFB5F /* Course_CatalogUITestsLaunchTests.swift */; };
+		EA4DDA442A3E798700AFFB5F /* .github in Resources */ = {isa = PBXBuildFile; fileRef = EA4DDA432A3E798700AFFB5F /* .github */; };
+		EA4DDA462A3E799B00AFFB5F /* Course CatalogUITestsCS3260.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4DDA452A3E799B00AFFB5F /* Course CatalogUITestsCS3260.swift */; };
+		EA4DDA572A3E85A000AFFB5F /* CSCourses.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA4DDA562A3E85A000AFFB5F /* CSCourses.plist */; };
+		EA4DDA5B2A3E90BB00AFFB5F /* loadCSCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4DDA5A2A3E90BB00AFFB5F /* loadCSCourses.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EA4DDA272A3E795800AFFB5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EA4DDA0E2A3E795700AFFB5F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA4DDA152A3E795700AFFB5F;
+			remoteInfo = "Course Catalog";
+		};
+		EA4DDA312A3E795800AFFB5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EA4DDA0E2A3E795700AFFB5F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA4DDA152A3E795700AFFB5F;
+			remoteInfo = "Course Catalog";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EA4DDA162A3E795700AFFB5F /* Course Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Course Catalog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA4DDA192A3E795700AFFB5F /* Course_CatalogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course_CatalogApp.swift; sourceTree = "<group>"; };
+		EA4DDA1B2A3E795700AFFB5F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EA4DDA1D2A3E795800AFFB5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EA4DDA202A3E795800AFFB5F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EA4DDA262A3E795800AFFB5F /* Course CatalogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Course CatalogTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA4DDA2A2A3E795800AFFB5F /* Course_CatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course_CatalogTests.swift; sourceTree = "<group>"; };
+		EA4DDA302A3E795800AFFB5F /* Course CatalogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Course CatalogUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA4DDA342A3E795800AFFB5F /* Course_CatalogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course_CatalogUITests.swift; sourceTree = "<group>"; };
+		EA4DDA362A3E795800AFFB5F /* Course_CatalogUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course_CatalogUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EA4DDA432A3E798700AFFB5F /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
+		EA4DDA452A3E799B00AFFB5F /* Course CatalogUITestsCS3260.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Course CatalogUITestsCS3260.swift"; sourceTree = "<group>"; };
+		EA4DDA562A3E85A000AFFB5F /* CSCourses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = CSCourses.plist; path = ../CSCourses.plist; sourceTree = "<group>"; };
+		EA4DDA5A2A3E90BB00AFFB5F /* loadCSCourses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadCSCourses.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EA4DDA132A3E795700AFFB5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA4DDA232A3E795800AFFB5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA4DDA2D2A3E795800AFFB5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EA4DDA0D2A3E795700AFFB5F = {
+			isa = PBXGroup;
+			children = (
+				EA4DDA432A3E798700AFFB5F /* .github */,
+				EA4DDA182A3E795700AFFB5F /* Course Catalog */,
+				EA4DDA292A3E795800AFFB5F /* Course CatalogTests */,
+				EA4DDA332A3E795800AFFB5F /* Course CatalogUITests */,
+				EA4DDA172A3E795700AFFB5F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EA4DDA172A3E795700AFFB5F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EA4DDA162A3E795700AFFB5F /* Course Catalog.app */,
+				EA4DDA262A3E795800AFFB5F /* Course CatalogTests.xctest */,
+				EA4DDA302A3E795800AFFB5F /* Course CatalogUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EA4DDA182A3E795700AFFB5F /* Course Catalog */ = {
+			isa = PBXGroup;
+			children = (
+				EA4DDA192A3E795700AFFB5F /* Course_CatalogApp.swift */,
+				EA4DDA562A3E85A000AFFB5F /* CSCourses.plist */,
+				EA4DDA1B2A3E795700AFFB5F /* ContentView.swift */,
+				EA4DDA1D2A3E795800AFFB5F /* Assets.xcassets */,
+				EA4DDA5A2A3E90BB00AFFB5F /* loadCSCourses.swift */,
+				EA4DDA1F2A3E795800AFFB5F /* Preview Content */,
+			);
+			path = "Course Catalog";
+			sourceTree = "<group>";
+		};
+		EA4DDA1F2A3E795800AFFB5F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EA4DDA202A3E795800AFFB5F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EA4DDA292A3E795800AFFB5F /* Course CatalogTests */ = {
+			isa = PBXGroup;
+			children = (
+				EA4DDA2A2A3E795800AFFB5F /* Course_CatalogTests.swift */,
+			);
+			path = "Course CatalogTests";
+			sourceTree = "<group>";
+		};
+		EA4DDA332A3E795800AFFB5F /* Course CatalogUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EA4DDA342A3E795800AFFB5F /* Course_CatalogUITests.swift */,
+				EA4DDA362A3E795800AFFB5F /* Course_CatalogUITestsLaunchTests.swift */,
+				EA4DDA452A3E799B00AFFB5F /* Course CatalogUITestsCS3260.swift */,
+			);
+			path = "Course CatalogUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EA4DDA152A3E795700AFFB5F /* Course Catalog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA4DDA3A2A3E795800AFFB5F /* Build configuration list for PBXNativeTarget "Course Catalog" */;
+			buildPhases = (
+				EA4DDA122A3E795700AFFB5F /* Sources */,
+				EA4DDA132A3E795700AFFB5F /* Frameworks */,
+				EA4DDA142A3E795700AFFB5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Course Catalog";
+			productName = "Course Catalog";
+			productReference = EA4DDA162A3E795700AFFB5F /* Course Catalog.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EA4DDA252A3E795800AFFB5F /* Course CatalogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA4DDA3D2A3E795800AFFB5F /* Build configuration list for PBXNativeTarget "Course CatalogTests" */;
+			buildPhases = (
+				EA4DDA222A3E795800AFFB5F /* Sources */,
+				EA4DDA232A3E795800AFFB5F /* Frameworks */,
+				EA4DDA242A3E795800AFFB5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA4DDA282A3E795800AFFB5F /* PBXTargetDependency */,
+			);
+			name = "Course CatalogTests";
+			productName = "Course CatalogTests";
+			productReference = EA4DDA262A3E795800AFFB5F /* Course CatalogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EA4DDA2F2A3E795800AFFB5F /* Course CatalogUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA4DDA402A3E795800AFFB5F /* Build configuration list for PBXNativeTarget "Course CatalogUITests" */;
+			buildPhases = (
+				EA4DDA2C2A3E795800AFFB5F /* Sources */,
+				EA4DDA2D2A3E795800AFFB5F /* Frameworks */,
+				EA4DDA2E2A3E795800AFFB5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA4DDA322A3E795800AFFB5F /* PBXTargetDependency */,
+			);
+			name = "Course CatalogUITests";
+			productName = "Course CatalogUITests";
+			productReference = EA4DDA302A3E795800AFFB5F /* Course CatalogUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EA4DDA0E2A3E795700AFFB5F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					EA4DDA152A3E795700AFFB5F = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					EA4DDA252A3E795800AFFB5F = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = EA4DDA152A3E795700AFFB5F;
+					};
+					EA4DDA2F2A3E795800AFFB5F = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = EA4DDA152A3E795700AFFB5F;
+					};
+				};
+			};
+			buildConfigurationList = EA4DDA112A3E795700AFFB5F /* Build configuration list for PBXProject "Course Catalog" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EA4DDA0D2A3E795700AFFB5F;
+			productRefGroup = EA4DDA172A3E795700AFFB5F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EA4DDA152A3E795700AFFB5F /* Course Catalog */,
+				EA4DDA252A3E795800AFFB5F /* Course CatalogTests */,
+				EA4DDA2F2A3E795800AFFB5F /* Course CatalogUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EA4DDA142A3E795700AFFB5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA4DDA442A3E798700AFFB5F /* .github in Resources */,
+				EA4DDA212A3E795800AFFB5F /* Preview Assets.xcassets in Resources */,
+				EA4DDA1E2A3E795800AFFB5F /* Assets.xcassets in Resources */,
+				EA4DDA572A3E85A000AFFB5F /* CSCourses.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA4DDA242A3E795800AFFB5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA4DDA2E2A3E795800AFFB5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EA4DDA122A3E795700AFFB5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA4DDA5B2A3E90BB00AFFB5F /* loadCSCourses.swift in Sources */,
+				EA4DDA1C2A3E795700AFFB5F /* ContentView.swift in Sources */,
+				EA4DDA1A2A3E795700AFFB5F /* Course_CatalogApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA4DDA222A3E795800AFFB5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA4DDA2B2A3E795800AFFB5F /* Course_CatalogTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA4DDA2C2A3E795800AFFB5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA4DDA352A3E795800AFFB5F /* Course_CatalogUITests.swift in Sources */,
+				EA4DDA462A3E799B00AFFB5F /* Course CatalogUITestsCS3260.swift in Sources */,
+				EA4DDA372A3E795800AFFB5F /* Course_CatalogUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EA4DDA282A3E795800AFFB5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA4DDA152A3E795700AFFB5F /* Course Catalog */;
+			targetProxy = EA4DDA272A3E795800AFFB5F /* PBXContainerItemProxy */;
+		};
+		EA4DDA322A3E795800AFFB5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA4DDA152A3E795700AFFB5F /* Course Catalog */;
+			targetProxy = EA4DDA312A3E795800AFFB5F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EA4DDA382A3E795800AFFB5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EA4DDA392A3E795800AFFB5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EA4DDA3B2A3E795800AFFB5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Course Catalog/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "taylorshipley.Course-Catalog";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EA4DDA3C2A3E795800AFFB5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Course Catalog/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "taylorshipley.Course-Catalog";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EA4DDA3E2A3E795800AFFB5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "taylorshipley.Course-CatalogTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Course Catalog.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Course Catalog";
+			};
+			name = Debug;
+		};
+		EA4DDA3F2A3E795800AFFB5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "taylorshipley.Course-CatalogTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Course Catalog.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Course Catalog";
+			};
+			name = Release;
+		};
+		EA4DDA412A3E795800AFFB5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "taylorshipley.Course-CatalogUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Course Catalog";
+			};
+			name = Debug;
+		};
+		EA4DDA422A3E795800AFFB5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "taylorshipley.Course-CatalogUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Course Catalog";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EA4DDA112A3E795700AFFB5F /* Build configuration list for PBXProject "Course Catalog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA4DDA382A3E795800AFFB5F /* Debug */,
+				EA4DDA392A3E795800AFFB5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA4DDA3A2A3E795800AFFB5F /* Build configuration list for PBXNativeTarget "Course Catalog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA4DDA3B2A3E795800AFFB5F /* Debug */,
+				EA4DDA3C2A3E795800AFFB5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA4DDA3D2A3E795800AFFB5F /* Build configuration list for PBXNativeTarget "Course CatalogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA4DDA3E2A3E795800AFFB5F /* Debug */,
+				EA4DDA3F2A3E795800AFFB5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA4DDA402A3E795800AFFB5F /* Build configuration list for PBXNativeTarget "Course CatalogUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA4DDA412A3E795800AFFB5F /* Debug */,
+				EA4DDA422A3E795800AFFB5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EA4DDA0E2A3E795700AFFB5F /* Project object */;
+}

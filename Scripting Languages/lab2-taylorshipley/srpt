@@ -1,0 +1,48 @@
+#!/bin/bash 
+# Taylor Shipley 
+# Lab2 - Search and Report
+# CS 3030 - Scripting Languages
+
+if [ $# -ne 1 ]; then
+    echo "Usage: srpt FOLDER"
+    exit 1
+fi
+
+# Creates temp folder for our temp files
+mkdir /tmp/$USER
+
+# Searches through specified folder and documents the file metadata it finds.
+find $1 \( -type f -fprintf /tmp/$USER/numberoffiles "\n" \) , \( -type d -fprintf /tmp/$USER/numberofdirectories "\n" \) , \( -type l -fprintf /tmp/$USER/numberoflinks "\n" \) , \( -type f -fprintf /tmp/$USER/sizeofallfiles "%s\n" \) , \( -type f \( -name '*.jpg' -o -name '*.bmp' -o -name '*.gif' \) -fprintf /tmp/$USER/numberofgraphicsfiles "\n" \) , \( -type f -mtime +365 -fprintf /tmp/$USER/numberofoldfiles "\n" \) , \( -type f -executable -fprintf /tmp/$USER/numberofexecutablefiles "\n" \) , \( -type f -size +500000c -fprintf /tmp/$USER/numberoflargefiles "\n" \) , \( -type f \( -name '*.o' \) -fprintf /tmp/$USER/numberoftempfiles "\n" \)
+
+#Calculates the total file count and file sizes
+today=`date +%c`
+fileCnt=$(wc -l /tmp/$USER/numberoffiles | cut -d' ' -f1)
+dirCnt=$(wc -l /tmp/$USER/numberofdirectories | cut -d' ' -f1)
+((dirCnt--))
+symLnk=$(wc -l /tmp/$USER/numberoflinks | cut -d' ' -f1)
+oldFile=$(wc -l /tmp/$USER/numberofoldfiles | cut -d' ' -f1)
+largeFile=$(wc -l /tmp/$USER/numberoflargefiles | cut -d' ' -f1)
+graphFile=$(wc -l /tmp/$USER/numberofgraphicsfiles | cut -d' ' -f1)
+tempFile=$(wc -l /tmp/$USER/numberoftempfiles | cut -d' ' -f1)
+exeFile=$(wc -l /tmp/$USER/numberofexecutablefiles | cut -d' ' -f1)
+totalSize=$(awk '{tot=tot+$1} END {print tot}' /tmp/$USER/sizeofallfiles)
+
+printf "SearchReport %s" $HOSTNAME
+printf " "$1
+printf " %s" $today
+printf "\n"
+printf "Execution time %'d\n" $SECONDS
+printf "Directories %'d\n" $dirCnt
+printf "Files %'d\n" $fileCnt
+printf "Sym links %'d\n" $symLnk
+printf "Old files %'d\n" $oldFile
+printf "Large files %'d\n" $largeFile
+printf "Graphics files %'d\n" $graphFile
+printf "Temporary files %'d\n" $tempFile
+printf "Executable files %'d\n" $exeFile
+printf "TotalFileSize %'d\n" $totalSize
+
+TMP_DIR="/tmp"
+rm -rf $TMP_DIR/*
+
+exit 0

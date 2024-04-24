@@ -1,0 +1,36 @@
+Name: Taylor Shipley
+Date: 05/30/2023
+
+getpid files: 
+syscall.c - Maps system calls to their corresponding handlers
+syscall.h - A header file that defines the system call number for a function
+sysproc.c - Defines the handlers called by syscall.c and executes the funtions
+user.h - A header file that defines the function prototype and definitions
+usys.S - Interupts program to enter kernel mode to invoke system call
+
+kill files:
+defs.h - A file that contains definitions, data structures and function protypes for kernel source code
+kill.c - This file provides the interface for user programs to call the kill system call.
+proc.c - This file contains functions and data structures related to process management in the kernel
+syscall.c - Maps system calls to their corresponding handlers
+syscall.h - A header file that defines the system call number for a function
+sysproc.c - Defines the handlers called by syscall.c and executes the funtions
+trap.c - Implements the trap handling mechanism for exceptions and interrupts during user program execution.
+user.h - A header file that defines the function prototype and definitions
+usys.S - Interupts program to enter kernel mode to invoke system call
+
+fork files:
+defs.h - A file that contains definitions, data structures and function protypes for kernel source code
+proc.c - This file contains functions and data structures related to process management in the kernel
+syscall.c - Maps system calls to their corresponding handlers
+syscall.h - A header file that defines the system call number for a function
+sysproc.c - Defines the handlers called by syscall.c and executes the funtions
+user.h - A header file that defines the function prototype and definitions
+usys.S - Interupts program to enter kernel mode to invoke system call
+
+open files:
+syscall.c - Maps system calls to their corresponding handlers
+syscall.h - A header file that defines the system call number for a function
+sysfile.c - Implements system call handlers related to file operations
+user.h - A header file that defines the function prototype and definitions
+usys.S - Interupts program to enter kernel mode to invoke system call

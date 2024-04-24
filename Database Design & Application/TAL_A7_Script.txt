@@ -1,0 +1,92 @@
+USE TAL;
+tee /Users/Tays012/Documents/CSIS1550/Shipley_Taylor_Ch5TAL.txt
+
+# Taylor Shipley
+# Assignment #6: Single-Table Query for the COLONIAL Adventure Tours
+
+
+#1. For each order, list the order number and order date along with the number and name of the customer that placed the order.
+
+SELECT Orders.Order_NUM,Customer.Customer_Num, Customer.Customer_Name, Orders.Order_Date FROM Orders, Customer WHERE CUSTOMER.CUSTOMER_NUM = Orders.CUSTOMER_NUM;
+
+#2. For each order placed on October 15, 2015, list the order number along with the number and name of the customer that placed the order.
+
+SELECT Orders.Order_NUM, Customer.Customer_Name, Customer.Customer_Num Orders FROM Orders, Customer WHERE CUSTOMER.CUSTOMER_NUM = Orders.CUSTOMER_NUM AND ORDER_DATE = '2015-10-15';
+
+#3. For each order, list the order number, order date, item number, number of units ordered, and quoted price for each order line that makes up the order.
+
+SELECT Orders.Order_NUM, Orders.Order_Date, ORDER_LINE.ITEM_NUM, ORDER_LINE.NUM_ORDERED, ORDER_LINE.QUOTED_PRICE FROM ORDERS, ORDER_LINE WHERE Orders.ORDER_NUM = ORDER_LINE.ORDER_NUM;
+
+#4. Use the IN operator to find the number and name of each customer that placed an order on October 15, 2015.
+
+SELECT Customer.Customer_Num, Customer.Customer_Name FROM CUSTOMER, ORDERS WHERE CUSTOMER.CUSTOMER_NUM = ORDERS.CUSTOMER_NUM AND ORDERS.ORDER_DATE IN ('2015-10-15'); 
+
+#5. Repeat Exercise 4, but this time use the EXISTS operator in your answer.
+
+SELECT CUSTOMER_NUM, CUSTOMER_NAME FROM CUSTOMER WHERE EXISTS (SELECT CUSTOMER_NAME  FROM CUSTOMER, ORDERS WHERE CUSTOMER.CUSTOMER_NUM = ORDERS.CUSTOMER_NUM AND ORDER_DATE = '2015-10-15');
+
+#6. Find the number and name of each customer that did not place an order on October 15, 2015.
+
+SELECT CUSTOMER.CUSTOMER_NUM, CUSTOMER.CUSTOMER_NAME FROM CUSTOMER, ORDERS WHERE CUSTOMER.CUSTOMER_NUM = ORDERS.CUSTOMER_NUM AND NOT ORDER_DATE = '2015-10-15';
+
+#7. For each order, list the order number, order date, item number, description, and category for each item that makes up the order.
+
+SELECT ORDERS.ORDER_NUM, ORDERS.ORDER_DATE, ORDER_LINE.ITEM_NUM, ITEM.DESCRIPTION, ITEM.CATEGORY FROM ORDERS, ITEM, ORDER_LINE WHERE ORDER_LINE.ORDER_NUM = ORDERS.ORDER_NUM AND ITEM.ITEM_NUM = ORDER_LINE.ITEM_NUM;
+
+#8. Repeat Exercise 7, but this time order the rows by category and then by order number.
+
+SELECT ORDERS.ORDER_NUM, ORDERS.ORDER_DATE, ORDER_LINE.ITEM_NUM, ITEM.DESCRIPTION, ITEM.CATEGORY FROM ORDERS, ITEM, ORDER_LINE WHERE ORDER_LINE.ORDER_NUM = ORDERS.ORDER_NUM AND ITEM.ITEM_NUM = ORDER_LINE.ITEM_NUM ORDER BY ITEM.CATEGORY ASC, ORDERS.ORDER_NUM DESC;
+
+#9. Use a subquery to find the rep number, last name, and first name of each sales rep who represents at least one customer with a credit limit of $10,000. List each sales rep only once in the results.
+
+SELECT REP.REP_NUM, REP.LAST_NAME, REP.FIRST_NAME FROM REP, CUSTOMER WHERE CUSTOMER.REP_NUM = REP.REP_NUM AND REP.REP_NUM = (SELECT CUSTOMER.REP_NUM FROM CUSTOMER WHERE CREDIT_LIMIT > 10000) GROUP BY REP.REP_NUM;
+
+#10. Repeat Exercise 9, but this time do not use a subquery. 
+
+SELECT REP.REP_NUM, REP.LAST_NAME, REP.FIRST_NAME FROM REP, CUSTOMER WHERE REP.REP_NUM = CUSTOMER.REP_NUM AND CUSTOMER.CREDIT_LIMIT = 10000 GROUP BY REP.REP_NUM;
+
+#11. Find the number and name of each customer that currently has an order on file for a Rocking Horse.
+
+SELECT CUSTOMER.CUSTOMER_NUM, CUSTOMER.CUSTOMER_NAME FROM CUSTOMER, ORDERS,ORDER_LINE WHERE ORDERS.ORDER_NUM = ORDER_LINE.ORDER_NUM AND CUSTOMER.CUSTOMER_NUM = ORDERS.CUSTOMER_NUM AND ORDER_LINE.ITEM_NUM = 'FD11';
+
+#12. List the item number, description, and category for each pair of items that are in the same category.
+
+SELECT ITEM_NUM, DESCRIPTION, CATEGORY FROM ITEM WHERE CATEGORY IN (SELECT CATEGORY FROM ITEM GROUP BY CATEGORY HAVING COUNT(CATEGORY) >1);
+
+#13. List the order number and order date for each order placed by the customer named Johnson’s Department Store. 
+
+SELECT ORDER_NUM, ORDER_DATE FROM ORDERS WHERE CUSTOMER_NUM = 386;
+
+#14. List the order number and order date for each order that contains an order line for a Fire Engine.
+
+SELECT ORDERS.ORDER_NUM, ORDERS.ORDER_DATE FROM ORDERS, ORDER_LINE WHERE ORDERS.ORDER_NUM = ORDER_LINE.ORDER_NUM AND ORDER_LINE.ITEM_NUM = 'TW35';
+
+#15. List the order number and order date for each order that either was placed by Almondton General Store or that contains an order line for a Fire Engine.
+
+SELECT ORDERS.ORDER_NUM, ORDERS.ORDER_DATE FROM ORDERS, ORDER_LINE WHERE ORDERS.ORDER_NUM = ORDER_LINE.ORDER_NUM AND (ORDER_LINE.ITEM_NUM = 'TW35' OR CUSTOMER_NUM = 586);
+
+#16. List the order number and order date for each order that was placed by Almondton General Store and that contains an order line for a Fire Engine.
+
+SELECT ORDERS.ORDER_NUM, ORDERS.ORDER_DATE FROM ORDERS, ORDER_LINE WHERE ORDERS.ORDER_NUM = ORDER_LINE.ORDER_NUM AND ORDER_LINE.ITEM_NUM = 'TW35' AND CUSTOMER_NUM = 586;
+
+#17. List the order number and order date for each order that was placed by Almondton General Store but that does not contain an order line for a Fire Engine.
+
+SELECT ORDERS.ORDER_NUM, ORDERS.ORDER_DATE FROM ORDERS, ORDER_LINE WHERE ORDERS.ORDER_NUM = ORDER_LINE.ORDER_NUM AND CUSTOMER_NUM = 586 AND NOT ORDER_LINE.ITEM_NUM = 'TW35';
+
+#18. List the item number, description, unit price, and category for each item that has a unit price greater than the unit price of every item in category GME. Use either the ALL or ANY operator in your query. (Hint: Make sure you select the correct operator.)
+
+SELECT ITEM_NUM, DESCRIPTION, PRICE, CATEGORY FROM ITEM WHERE PRICE > ALL (SELECT PRICE FROM ITEM WHERE CATEGORY = 'GME');
+
+#19. For each item, list the item number, description, units on hand, order number, and number of units ordered. All items should be included in the results. For those items that are currently not on order, the order number and number of units ordered should be left blank. Order the results by item number.
+
+SELECT ITEM.ITEM_NUM, ITEM.DESCRIPTION, ITEM.ON_HAND, ORDER_LINE.ORDER_NUM, ORDER_LINE.NUM_ORDERED FROM ITEM, ORDER_LINE WHERE ORDER_LINE.ITEM_NUM = ITEM.ITEM_NUM;
+
+#20. Critical Thinking If you used ALL in Exercise 18, repeat the exercise using ANY. If you used ANY, repeat the exercise using ALL, and then run the new command. What question does the new command answer?
+
+SELECT ITEM_NUM, DESCRIPTION, PRICE, CATEGORY FROM ITEM WHERE PRICE > ANY (SELECT PRICE FROM ITEM WHERE CATEGORY = 'GME');
+
+#21. Critical Thinking For each rep, list the customer number, customer name, rep last name, and rep first name. All reps should be included in the results. Order the results by rep number. There are two SQL commands for this query that will list the same results. Create and run each SQL command.
+
+SELECT CUSTOMER.CUSTOMER_NUM, CUSTOMER.CUSTOMER_NAME, REP.LAST_NAME, REP.FIRST_NAME FROM CUSTOMER, REP WHERE CUSTOMER.REP_NUM = REP.REP_NUM;
+
+notee
